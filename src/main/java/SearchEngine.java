@@ -1,4 +1,6 @@
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -21,7 +23,7 @@ public class SearchEngine {
         ReadFile readFile = new ReadFile();
         Docs = readFile.ReadAllDocs(CorpusPath);
         Parse parse = new Parse();
-        Terms = parse.ParseCorpus(Docs,StemmerNeeded,StopWordsPath);
+        parse.ParseCorpus(new ArrayList<DocDetailes>(Docs.values()), false, null);
         // Indexer indexer = new Indexer();
         // indexer.CreateIndexer(Terms);
     }

@@ -5,6 +5,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Main extends Application {
 
@@ -29,7 +31,17 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
+        ReadFile rd = new ReadFile();
+        try
+        {
+            HashMap<String,DocDetailes> yarden = rd.ReadAllDocs("C:\\Git\\SearchEngine\\corpus");
+            Parse parse = new Parse();
+            parse.ParseCorpus(new ArrayList<DocDetailes>(yarden.values()), false, null);
+        }
+        catch (IOException e)
+        {
+            System.out.print("kine");
+        }
     }
 }
 
