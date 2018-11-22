@@ -1,16 +1,21 @@
+package Model;
+
 public class DocDetailes {
     public int MaxTermFrequency;
     public int NumOfSpecialWords;
+    public int DocLength;
     public String DocText;
     public String DocDate;
     public String DocTitle;
     public String City;
 
-    public DocDetailes(String docText, String docDate, String docTitle, String city) {
+
+    public DocDetailes(String docText, String docDate, String docTitle, String city ,int docLength) {
         DocText = docText;
         DocDate = docDate;
         DocTitle = docTitle;
         City = city;
+        DocLength = docLength;
     }
 
     public int getMaxTermFrequency() {
@@ -27,6 +32,14 @@ public class DocDetailes {
 
     public void setNumOfSpecialWords(int numOfSpecialWords) {
         NumOfSpecialWords = numOfSpecialWords;
+    }
+
+    public int getDocLength() {
+        return DocLength;
+    }
+
+    public void setDocLength(int docLength) {
+        DocLength = docLength;
     }
 
     public String getDocText() {

@@ -1,3 +1,5 @@
+package Model;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,7 +16,7 @@ public class Main extends Application {
 
     {
         try {
-            searchEngine = new SearchEngine("/Users/eranedri/IdeaProjects/SearchEngine-Part1/Eran_Corpuse","/Users/eranedri/IdeaProjects/SearchEngine-Part1/stop_words.txt",false);
+            searchEngine = new SearchEngine("/Users/eranedri/IdeaProjects/Model.SearchEngine-Part1/Eran_Corpuse","/Users/eranedri/IdeaProjects/Model.SearchEngine-Part1/stop_words.txt",false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -34,7 +36,7 @@ public class Main extends Application {
         ReadFile rd = new ReadFile();
         try
         {
-            HashMap<String,DocDetailes> yarden = rd.ReadAllDocs("C:\\Git\\SearchEngine\\corpus");
+            HashMap<String,DocDetailes> yarden = rd.ReadAllDocs("C:\\Git\\Model.SearchEngine\\corpus");
             Parse parse = new Parse();
             parse.ParseCorpus(new ArrayList<DocDetailes>(yarden.values()), false, null);
         }
@@ -50,5 +52,5 @@ public class Main extends Application {
 
 
 
-//"/Users/eranedri/IdeaProjects/SearchEngine-Part1/corpus"
-//"/Users/eranedri/IdeaProjects/SearchEngine-Part1/Eran_Corpuse"
+//"/Users/eranedri/IdeaProjects/Model.SearchEngine-Part1/corpus"
+//"/Users/eranedri/IdeaProjects/Model.SearchEngine-Part1/Eran_Corpuse"

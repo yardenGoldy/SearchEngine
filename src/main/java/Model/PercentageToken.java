@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.List;
 
 public class PercentageToken implements IToken {

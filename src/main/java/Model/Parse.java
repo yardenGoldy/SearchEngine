@@ -1,7 +1,5 @@
-import javafx.util.Pair;
+package Model;
 
-import java.io.*;
-import java.lang.reflect.Array;
 import java.util.*;
 
 public class Parse {
@@ -16,6 +14,7 @@ public class Parse {
         departments.add(new NumberToken());
     }
 
+    // public HashMap<String,HashSet<String>> ParseCorpus(HashMap<String,Model.DocDetailes> Docs, boolean stemmerneeded , String stopwordspath)
     public ArrayList<DocDetailes> ParseCorpus(ArrayList<DocDetailes> Docs, Boolean isStemmer, ArrayList<String> stopWords) {
         ArrayList<DocDetailes> result = new ArrayList<>();
         for (int i = 0; i < Docs.size();i++)

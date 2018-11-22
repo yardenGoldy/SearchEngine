@@ -1,7 +1,9 @@
+package Model;
+
 public class DictionaryDetailes {
 
     public String Name;
-    public int NumOfDocsTermIN;
+    public int NumOfDocsTermIN;  //df
     public int NumOfTermInCorpus;
     public int Pointer;
 

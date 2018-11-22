@@ -1,6 +1,7 @@
+package Model;
+
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -24,7 +25,7 @@ public class SearchEngine {
         Docs = readFile.ReadAllDocs(CorpusPath);
         Parse parse = new Parse();
         parse.ParseCorpus(new ArrayList<DocDetailes>(Docs.values()), false, null);
-        // Indexer indexer = new Indexer();
+        // Model.Indexer indexer = new Model.Indexer();
         // indexer.CreateIndexer(Terms);
     }
 

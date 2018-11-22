@@ -1,9 +1,11 @@
+package Model;
+
 import java.io.*;
 
 /**
- * Stemmer, implementing the Porter Stemming Algorithm
+ * Model.Stemmer, implementing the Porter Stemming Algorithm
  *
- * The Stemmer class transforms a word into its root form.  The input
+ * The Model.Stemmer class transforms a word into its root form.  The input
  * word can be provided a character at time (by calling add()), or at once
  * by calling one of the various stem(something) methods.
  */
@@ -313,7 +315,7 @@ class Stemmer
         if (b[k] == 'l' && doublec(k) && m() > 1) k--;
     }
 
-    /** Stem the word placed into the Stemmer buffer through calls to add().
+    /** Stem the word placed into the Model.Stemmer buffer through calls to add().
      * Returns true if the stemming process resulted in a word different
      * from the input.  You can retrieve the result with
      * getResultLength()/getResultBuffer() or toString().
@@ -324,11 +326,11 @@ class Stemmer
         i_end = k+1; i = 0;
     }
 
-    /** Test program for demonstrating the Stemmer.  It reads text from a
+    /** Test program for demonstrating the Model.Stemmer.  It reads text from a
      * a list of files, stems each word, and writes the result to standard
      * output. Note that the word stemmed is expected to be in lower case:
-     * forcing lower case must be done outside the Stemmer class.
-     * Usage: Stemmer file-name file-name ...
+     * forcing lower case must be done outside the Model.Stemmer class.
+     * Usage: Model.Stemmer file-name file-name ...
      */
     public static void main(String[] args)
     {

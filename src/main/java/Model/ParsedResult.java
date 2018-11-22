@@ -1,3 +1,5 @@
+package Model;
+
 public class ParsedResult {
     public Boolean IsMatch;
     public StringBuilder ParsedSentence;
