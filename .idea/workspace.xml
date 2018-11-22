@@ -1,41 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c91228c9-e31c-457d-aede-2a043f47cc9a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Cache.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/GUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Ranker.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Model/Searcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SearchEngine.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/FB396001/FB396001" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/FB396001/FB396001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/FB396002/FB396002" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/FB396002/FB396002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/FB396003/FB396003" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/FB396003/FB396003" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/FB396004/FB396004" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/FB396004/FB396004" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/FB396005/FB396005" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/FB396005/FB396005" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corpus/FB396006/FB396006" beforeDir="false" afterPath="$PROJECT_DIR$/corpus/FB396006/FB396006" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CapitalLetterToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/CapitalLetterToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DateToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DateToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DictionaryDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DictionaryDetailes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DocDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/DocDetailes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/IToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Indexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Indexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/NumberToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Parse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Parse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ParsedResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ParsedResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PercentageToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/PercentageToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PostingDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/PostingDetailes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PriceToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/PriceToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RangeToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/RangeToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SearchEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Stemmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Stemmer.java" afterDir="false" />
+    <list default="true" id="c91228c9-e31c-457d-aede-2a043f47cc9a" name="Default Changelist" comment="Default Changelist">
+      <change beforePath="$PROJECT_DIR$/corpus/FB396001/FB396001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/FB396002/FB396002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/FB396003/FB396003" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/FB396004/FB396004" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/FB396005/FB396005" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/FB396006/FB396006" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -87,11 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -109,12 +82,12 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/ReadFile.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="622">
-              <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+              <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Parse.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Parse.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Model/Parse.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1">
@@ -247,6 +220,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Model/DictionaryDetailes.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/PostingDetailes.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/ReadFile.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/Main.java" />
       </list>
     </option>
   </component>
@@ -259,10 +233,10 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="948" />
-    <option name="width" value="981" />
-    <option name="height" value="1032" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="978" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -512,15 +486,23 @@
       <updated>1542390571726</updated>
       <workItem from="1542390575524" duration="473000" />
       <workItem from="1542463065014" duration="842000" />
-      <workItem from="1542874644292" duration="5256000" />
+      <workItem from="1542874644292" duration="5749000" />
     </task>
+    <task id="LOCAL-00001" summary="Default Changelist">
+      <created>1542886180811</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1542886180811</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64960000" />
+    <option name="totallyTimeSpent" value="65453000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -557,6 +539,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Default Changelist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Default Changelist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -873,45 +859,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/DictionaryDetailes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/SearchEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/ReadFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="622">
-          <caret line="63" column="24" lean-forward="true" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Indexer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/PostingDetailes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
@@ -951,10 +902,45 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/PostingDetailes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/DictionaryDetailes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="37" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Model/Parse.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1">
           <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/ReadFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="622">
+          <caret line="63" column="24" selection-start-line="63" selection-start-column="24" selection-end-line="63" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/SearchEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="46" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
         </state>
       </provider>
     </entry>
