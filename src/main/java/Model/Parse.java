@@ -3,6 +3,7 @@ package Model;
 import java.util.*;
 
 public class Parse {
+    public HashMap<String,HashSet<String>> Terms;
     private ArrayList<IToken> departments;
 
     public Parse() {

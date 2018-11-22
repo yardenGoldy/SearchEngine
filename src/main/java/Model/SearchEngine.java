@@ -9,8 +9,8 @@ public class SearchEngine {
     public String CorpusPath;
     public String StopWordsPath;
     boolean StemmerNeeded;
-    public HashMap<String,DocDetailes> Docs;
-    public static HashMap<String,HashSet<String>> Terms;
+    public HashMap<String,DocDetailes> Docs;  //<DocId,Model.DocDetailes>
+    public HashMap<String,HashSet<String>> Terms;  //<Term,Hashset<DocID>>
 
 
 
@@ -25,8 +25,8 @@ public class SearchEngine {
         Docs = readFile.ReadAllDocs(CorpusPath);
         Parse parse = new Parse();
         parse.ParseCorpus(new ArrayList<DocDetailes>(Docs.values()), false, null);
-        // Model.Indexer indexer = new Model.Indexer();
-        // indexer.CreateIndexer(Terms);
+        Indexer indexer = new Model.Indexer();
+        indexer.CreateIndexer(Terms);
     }
 
 }
