@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
+
 public class SearchEngine {
     public String CorpusPath;
     public String StopWordsPath;
     boolean StemmerNeeded;
     public HashMap<String,DocDetailes> Docs;  //<DocId,Model.DocDetailes>
-    public HashMap<String,HashSet<String>> Terms;  //<Term,Hashset<DocID>>
+    public HashMap<String,TermDetailes> Terms;  //<Term,TermDetailes>   //פה אני מחכה לתשובה שלך יובל איך המבנה נתונים שאני מקבל לאינדקסר יראה
 
 
 
