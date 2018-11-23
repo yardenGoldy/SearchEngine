@@ -16,7 +16,7 @@ public class Main extends Application {
 
     {
         try {
-            searchEngine = new SearchEngine("/Users/eranedri/IdeaProjects/SearchEngine/MIMIcorpus","/Users/eranedri/IdeaProjects/SearchEngine/stop_words.txt",false);
+            searchEngine = new SearchEngine("/Users/eranedri/IdeaProjects/SearchEngine/MINIcorpus","/Users/eranedri/IdeaProjects/SearchEngine/stop_words.txt",false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -33,6 +33,11 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+        launch(args);
+    }
+}
+
+// for yuval computer only!!
 //        ReadFile rd = new ReadFile();
 //        try
 //        {
@@ -44,13 +49,11 @@ public class Main extends Application {
 //        {
 //            System.out.print("kine");
 //        }
-    }
-}
 
 
+//      "/Users/eranedri/IdeaProjects/SearchEngine/corpus"
+//    "/Users/eranedri/IdeaProjects/SearchEngine/MINIcorpus"
 
-
-
-
-//"/Users/eranedri/IdeaProjects/Model.SearchEngine-Part1/corpus"
-//"/Users/eranedri/IdeaProjects/Model.SearchEngine-Part1/Eran_Corpuse"
+/// to do : 1.replace all strings to stringbuilder
+//          2. to check that docs,dictionary,posting,cache create only once
+//          3. to keep encapsulation on every field
