@@ -1,7 +1,7 @@
 package Model;
 
 import java.util.*;
-import javafx.util.Pair;
+
 
 public class Parse {
     public HashMap<String,TermDetailes> Terms;
