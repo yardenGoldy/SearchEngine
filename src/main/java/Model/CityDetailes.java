@@ -9,13 +9,14 @@ public class CityDetailes {
     public String Country;
     public String Crrency;
     public String PopulationSize;
-    public HashMap<String,ArrayList<Integer>> CityInDoc;  // <DocID,locationsInDoc>
+    public HashMap<String,ArrayList<Integer>> CityInDoc;  // <DocID,PositionsInDoc>
 
-    public CityDetailes(String cityName, String country, String crrency, String populationSize) {
+    public void InitiateCityDetailes(String cityName, String country, String crrency, String populationSize) {
         CityName = cityName;
         Country = country;
         Crrency = crrency;
         PopulationSize = populationSize;
+        CityInDoc = new HashMap<>();
     }
 
     public String getCityName() {
@@ -48,5 +49,9 @@ public class CityDetailes {
 
     public void setPopulationSize(String populationSize) {
         PopulationSize = populationSize;
+    }
+
+    public void AddNewDoc(String docid,ArrayList<Integer> positionsindoc){
+        CityInDoc.put(docid,positionsindoc);
     }
 }

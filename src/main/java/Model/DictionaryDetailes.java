@@ -38,4 +38,6 @@ public class DictionaryDetailes {
     public void setPointer(int pointer) {
         Pointer = pointer;
     }
+
+    public void UpdateNumOfTermInCorpus(int n){this.NumOfTermInCorpus = NumOfTermInCorpus + n ;}
 }
