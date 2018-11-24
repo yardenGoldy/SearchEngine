@@ -15,7 +15,7 @@ public class ReadFile {
 
     protected File MainPath;
     public ArrayList<File> SubFilesPath;
-    public HashMap<String,DocDetailes> Docs; //<DocId,Model.DocDetailes>  sent to parser!!
+    public static HashMap<String,DocDetailes> Docs; //<DocId,Model.DocDetailes>  sent to parser!!
     public StringBuilder stb;
 
 
@@ -63,9 +63,8 @@ public class ReadFile {
                     String DocDate = element.getElementsByTag("DATE1").text();
                     String DocTitle = element.getElementsByTag("TI").text();
                     String DocCity = element.getElementsByTag("F").toString();
-                    int DocLength = element.childNodeSize();
                     // needed to handle to find city , and change it ti big letters!!
-                    Docs.put(DocID,new DocDetailes(DocText,DocDate,DocTitle,DocCity,DocLength));
+                    Docs.put(DocID,new DocDetailes(DocText,DocDate,DocTitle,DocCity));
                 }
             }
         }

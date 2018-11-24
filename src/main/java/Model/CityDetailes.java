@@ -1,5 +1,6 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CityDetailes {
@@ -8,7 +9,7 @@ public class CityDetailes {
     public String Country;
     public String Crrency;
     public String PopulationSize;
-    public HashMap<String,StringBuilder> CityInDoc;  // <DocID,locations>
+    public HashMap<String,ArrayList<Integer>> CityInDoc;  // <DocID,locationsInDoc>
 
     public CityDetailes(String cityName, String country, String crrency, String populationSize) {
         CityName = cityName;
@@ -47,13 +48,5 @@ public class CityDetailes {
 
     public void setPopulationSize(String populationSize) {
         PopulationSize = populationSize;
-    }
-
-    public HashMap<String, StringBuilder> getCityInDoc() {
-        return CityInDoc;
-    }
-
-    public void setCityInDoc(HashMap<String, StringBuilder> cityInDoc) {
-        CityInDoc = cityInDoc;
     }
 }

@@ -10,17 +10,14 @@ public class DocDetailes {
     public String City;
 
 
-    public DocDetailes(String docText, String docDate, String docTitle, String city ,int docLength) {
+    public DocDetailes(String docText, String docDate, String docTitle, String city) {
         DocText = docText;
         DocDate = docDate;
         DocTitle = docTitle;
         City = city;
-        DocLength = docLength;
     }
 
-    public int getMaxTermFrequency() {
-        return MaxTermFrequency;
-    }
+    public int getMaxTermFrequency() {return MaxTermFrequency;}
 
     public void setMaxTermFrequency(int maxTermFrequency) {
         MaxTermFrequency = maxTermFrequency;

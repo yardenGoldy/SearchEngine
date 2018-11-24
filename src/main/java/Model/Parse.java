@@ -3,8 +3,14 @@ package Model;
 import java.util.*;
 
 
+// for yuval :
+// 1. update for each doc his length without stopwords only verified tokens -- use: public void setDocLength(int docLength) {DocLength = docLength;}
+// 2. pay attention that we add a field of position of every word in a doc , look the update of TermDetailes
+// 3. remember that what i get back from the parse is : HashMap<String,ArrayList<TermDetailes>> Terms;
+
+
 public class Parse {
-    public HashMap<String,TermDetailes> Terms;
+    //public static HashMap<String,ArrayList<TermDetailes>> Terms;
     private ArrayList<IToken> departments;
 
     public Parse() {

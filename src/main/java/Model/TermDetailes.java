@@ -1,27 +1,24 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class TermDetailes {
     public String DocId;
     public int TF;
+    public ArrayList<Integer> Positions;
 
-    public TermDetailes(String docId, int TF) {
+
+    public TermDetailes(String docId) {
         DocId = docId;
-        this.TF = TF;
+        Positions = new ArrayList<>();
+        TF = 0;
     }
 
     public String getDocId() {
         return DocId;
     }
 
-    public void setDocId(String docId) {
-        DocId = docId;
-    }
+    public int getTF() {return TF;}
 
-    public int getTF() {
-        return TF;
-    }
-
-    public void setTF(int TF) {
-        this.TF = TF;
-    }
+    public void UpdateTF(){this.TF = TF+1;}
 }

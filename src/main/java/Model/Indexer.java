@@ -9,10 +9,10 @@ import java.util.*;
 
 public class Indexer {
 
-    public HashMap<String, DictionaryDetailes> Dictionary; //<Term,Model.DictionaryDetailes>
-    public HashMap<String, ArrayList<PostingDetailes>> Posting; //<DocId,Model.PostingDetailes>
-    public HashMap<String, ArrayList<PostingDetailes>> Cache; //<DocId,Model.PostingDetailes>
-    public HashMap<String, CityDetailes> City;       //<City,CityDetailes>   //needed API
+    public static HashMap<String, DictionaryDetailes> Dictionary; //<Term,Model.DictionaryDetailes>
+    public static HashMap<String, ArrayList<PostingDetailes>> Posting; //<DocId,Model.PostingDetailes>
+    public static HashMap<String, ArrayList<PostingDetailes>> Cache; //<DocId,Model.PostingDetailes>
+    public static HashMap<String, CityDetailes> City;       //<City,CityDetailes>   //needed API
     public StringBuilder stb;
     public int NumOfTermsBeforeStemming;
     public int NumOfTermsAfterStemming;
@@ -42,7 +42,9 @@ public class Indexer {
 
 
     public void CreateIndexer(HashMap<String,ArrayList<TermDetailes>> CorpusAfterParse, String CorpusPath, Boolean isStemmer) {
-        SortTerms(CorpusAfterParse);
+
+
+
 
 
 
@@ -59,10 +61,7 @@ public class Indexer {
 
     }
 
-    public void SortTerms(HashMap<String,ArrayList<TermDetailes>> Terms){
-        ArrayList<String> sortedKeys = new ArrayList<String>(Terms.keySet());
-        Collections.sort(sortedKeys);
-    }
+
 
     public void InitiatePostingFiles(String MainFolder,Boolean isStemmer){
             try {
