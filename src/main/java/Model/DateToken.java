@@ -26,7 +26,7 @@ public class DateToken implements IToken {
             int numeric = Integer.parseInt(first);
             if(numeric < 32 && numeric > 0)
             {
-                parsedSentence.append(String.format("%s-%d", datesByNumber.get(second), numeric));
+                parsedSentence.append(String.format("%s-%s", datesByNumber.get(second), numeric < 10 ? ("0" + String.valueOf(numeric)) : String.valueOf(numeric)));
                 isMatch = true;
             }
         }
@@ -34,7 +34,7 @@ public class DateToken implements IToken {
             int numeric = Integer.parseInt(second);
             if(numeric < 32 && numeric > 0)
             {
-                parsedSentence.append(String.format("%s-%d", datesByNumber.get(first), numeric));
+                parsedSentence.append(String.format("%s-%s", datesByNumber.get(first), numeric < 10 ? ("0" + String.valueOf(numeric)) : String.valueOf(numeric)));
                 isMatch = true;
             }
             else if(second.length() == 4)

@@ -9,19 +9,24 @@ public class RangeToken extends NumberToken {
         String first = sentence.get(0);
         StringBuilder result = new StringBuilder();
         Integer index = 0;
-        if (!first.equals("Between")) {
+        int size = sentence.size();
+        //todo : handle numbers
+        if (!first.equals("Between") && !first.equals("between")) {
             return null;
-        } else {
+        } else if(size > 3) {
             index++;
-            ParsedResult firstNumber = super.TryParse(sentence.subList(1, sentence.size()));
-            if(firstNumber.IsMatch && sentence.get(firstNumber.Index + 1).equals("and"))
+            ParsedResult firstNumber = super.TryParse(sentence.subList(1, size));
+            if(firstNumber.IsMatch && (firstNumber.Index + 1) < size && sentence.get(firstNumber.Index + 1).equals("and"))
             {
                 index += firstNumber.Index + 1;
-                ParsedResult secondNumber = super.TryParse(sentence.subList(firstNumber.Index + 2, sentence.size()));
-                if(secondNumber.IsMatch)
+                if((firstNumber.Index + 2) < size)
                 {
-                    index += secondNumber.Index;
-                    result.append(String.format("%s-%s", firstNumber.ParsedSentence, secondNumber.ParsedSentence));
+                    ParsedResult secondNumber = super.TryParse(sentence.subList(firstNumber.Index + 2, size));
+                    if(secondNumber.IsMatch)
+                    {
+                        index += secondNumber.Index;
+                        result.append(String.format("%s-%s", firstNumber.ParsedSentence, secondNumber.ParsedSentence));
+                    }
                 }
             }
         }

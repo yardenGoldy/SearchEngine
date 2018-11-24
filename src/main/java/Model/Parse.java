@@ -37,7 +37,8 @@ public class Parse {
             int textLength = textSplitted.size();
             while(j < textLength)
             {
-                List<String> sentenceToCheck = textSplitted.subList(j, j+6 < textLength ? j+6 : textLength);
+                List<String> sentenceToCheck = textSplitted.subList(j, j+8 < textLength ? j+8 : textLength);
+                removeSpecialChars(sentenceToCheck);
                 ParsedResult parsedResult = this.GetSuitableDepartment(sentenceToCheck);
                 if(parsedResult == null){
                     resultText.append(textSplitted.get(j));
@@ -59,6 +60,28 @@ public class Parse {
         }
 
         return result;
+    }
+
+    public void removeSpecialChars(List<String> sentenceToCheck){
+        int sentenceSize = sentenceToCheck.size();
+        for (int i = 0; i < sentenceSize;i++){
+            String current = sentenceToCheck.get(i);
+            int wordSize = current.length();
+            if(wordSize > 2)
+            {
+                char firstChar = current.charAt(0);
+                char lastChar = current.charAt(wordSize - 1);
+                if(!(Character.isLetter(firstChar) || Character.isDigit(firstChar) || firstChar == '-' || firstChar == '$'))
+                {
+                    sentenceToCheck.set(i,sentenceToCheck.get(i).substring(1));
+                }
+
+                if(!(Character.isLetter(lastChar) || Character.isDigit(lastChar) || lastChar == '%'))
+                {
+                    sentenceToCheck.set(i,current.substring(0, wordSize - 1));
+                }
+            }
+        }
     }
 
     public ParsedResult GetSuitableDepartment(List<String> sentence)

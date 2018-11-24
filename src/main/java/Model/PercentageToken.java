@@ -5,8 +5,9 @@ import java.util.List;
 public class PercentageToken implements IToken {
     @Override
     public ParsedResult TryParse(List<String> sentence) {
+        int size = sentence.size();
         String first = sentence.get(0);
-        String second = sentence.get(1);
+        String second = size > 1 ? sentence.get(1) : "";
         //String third = sentence.get(2); //todo- maybe fraction
         StringBuilder result = new StringBuilder();
         Integer index = 1;
@@ -24,7 +25,7 @@ public class PercentageToken implements IToken {
             isOk = false;
         }
         if(isOk && isNumeric(first)){
-            return new ParsedResult(true, result.append(String.format("%s%" ,first)), index);
+            return new ParsedResult(true, result.append(first).append('%'), index);
         }
 
         return null;

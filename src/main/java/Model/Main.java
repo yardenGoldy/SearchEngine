@@ -33,15 +33,11 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
-        launch(args);
-    }
-}
-
-//        for yuval computer only!!
+        //launch(args);
 //        ReadFile rd = new ReadFile();
 //        try
 //        {
-//            HashMap<String,DocDetailes> yarden = rd.ReadAllDocs("C:\\Git\\Model.SearchEngine\\MINIcorpus");
+//            HashMap<String,DocDetailes> yarden = rd.ReadAllDocs("C:\\Git\\SearchEngine\\corpus");
 //            Parse parse = new Parse();
 //            parse.ParseCorpus(new ArrayList<DocDetailes>(yarden.values()), false, null);
 //        }
@@ -49,6 +45,11 @@ public class Main extends Application {
 //        {
 //            System.out.print("kine");
 //        }
+    }
+}
+
+//        for yuval computer only!!
+
 
 
 //      "/Users/eranedri/IdeaProjects/SearchEngine/corpus"
