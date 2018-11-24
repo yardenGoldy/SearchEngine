@@ -12,7 +12,7 @@ public class SearchEngine {
     public static boolean StemmerNeeded;
     public static int NumOfDocs;
     public static HashMap<String,DocDetailes> Docs;  //<DocId,Model.DocDetailes>
-    //public HashMap<String,TermDetailes> Terms;  //<Term,TermDetailes>   //פה אני מחכה לתשובה שלך יובל איך המבנה נתונים שאני מקבל לאינדקסר יראה
+    public HashMap<String,ArrayList<TermDetailes>> Terms;  //<Term,TermDetailes>   //פה אני מחכה לתשובה שלך יובל איך המבנה נתונים שאני מקבל לאינדקסר יראה
 
 
 
