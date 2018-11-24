@@ -15,6 +15,7 @@ public class DocDetailes {
         DocDate = docDate;
         DocTitle = docTitle;
         City = city;
+        MaxTermFrequency = 0;
     }
 
     public int getMaxTermFrequency() {return MaxTermFrequency;}

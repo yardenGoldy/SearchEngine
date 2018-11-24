@@ -15,7 +15,7 @@ public class ReadFile {
 
     protected File MainPath;
     public ArrayList<File> SubFilesPath;
-    public static HashMap<String,DocDetailes> Docs; //<DocId,Model.DocDetailes>  sent to parser!!
+    public HashMap<String,DocDetailes> Docs; //<DocId,Model.DocDetailes>  sent to parser!!
     public StringBuilder stb;
 
 
