@@ -12,8 +12,10 @@ import java.util.*;
 public class Parse {
     //public static HashMap<String,ArrayList<TermDetailes>> Terms;
     private ArrayList<IToken> departments;
+    private HashMap<String, HashMap<String, TermDetailes>> resultForIndex;
 
     public Parse() {
+        resultForIndex = new HashMap<String, HashMap<String, TermDetailes>>();
         departments = new ArrayList<IToken>();
         departments.add(new RangeToken());
         departments.add(new PercentageToken());
@@ -40,13 +42,19 @@ public class Parse {
                 List<String> sentenceToCheck = textSplitted.subList(j, j+8 < textLength ? j+8 : textLength);
                 removeSpecialChars(sentenceToCheck);
                 ParsedResult parsedResult = this.GetSuitableDepartment(sentenceToCheck);
+                // Not Found
                 if(parsedResult == null){
-                    resultText.append(textSplitted.get(j));
+                    String currentWork = textSplitted.get(j);
+                    // todo : change text to id and index to real index
+                    UpdateInDictionary(currentWork, String.valueOf(i), 6);
+                    resultText.append(currentWork);
                     j++;
                 }
+                // Found a parsed department
                 else
                 {
                     resultText = resultText.append(parsedResult.ParsedSentence);
+                    UpdateInDictionary(parsedResult.ParsedSentence.toString(), String.valueOf(i), 6);
                     j += parsedResult.Index;
                 }
                 resultText.append(" ");
@@ -60,6 +68,27 @@ public class Parse {
         }
 
         return result;
+    }
+
+
+    public void UpdateInDictionary(String wordToAdd, String docId, int index){
+        HashMap<String, TermDetailes> WhereIsFound;
+        TermDetailes termToUpload;
+        if(!resultForIndex.containsKey(wordToAdd))
+        {
+            WhereIsFound = new HashMap<String, TermDetailes>();
+            termToUpload = new TermDetailes(docId);
+        }
+        else
+        {
+            WhereIsFound = resultForIndex.get(wordToAdd);
+            termToUpload = resultForIndex.get(wordToAdd).get(docId);
+        }
+
+        termToUpload.UpdateTF();
+        termToUpload.Positions.add(index);
+        WhereIsFound.put(docId, termToUpload);
+        resultForIndex.put(wordToAdd, WhereIsFound);
     }
 
     public void removeSpecialChars(List<String> sentenceToCheck){
