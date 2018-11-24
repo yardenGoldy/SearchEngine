@@ -4,12 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 
 public class NumberToken implements IToken {
-    private HashMap<String ,  Double > NumberByNumber;
+    private HashMap< String ,  Double > NumberByNumber;
+    public NumberToken(){
+        this.NumberByNumber = new HashMap<>();
+        this.InitiateNumber();
+    }
+
     @Override
     public ParsedResult TryParse(List<String> sentence){
+        int size = sentence.size();
         String first = sentence.get(0);
-        String second = sentence.get(1);
-        String third = sentence.get(2);
+        String second = size > 1 ? sentence.get(1) : "";
+        String third = size > 2 ? sentence.get(2) : "";
         StringBuilder result = new StringBuilder();
         Integer index = 1;
 
@@ -57,10 +63,10 @@ public class NumberToken implements IToken {
 
     private StringBuilder FinallyParse(Double num, String token, char suffix, Double div) {
         StringBuilder result = new StringBuilder();
-        result.append(num/div);
+        String divResult = String.valueOf(num/div).replace(".0", "");
+        result.append(divResult);
         if (token.contains("/")){
             result.append(" ").append(token);
-
         }
         result.append(suffix);
         return result;
@@ -72,10 +78,14 @@ public class NumberToken implements IToken {
         return res;
     }
 
-    private void InitiateDates() {
+    private void InitiateNumber() {
         NumberByNumber.put("Thousand", 1000.0);
         NumberByNumber.put("Million", 1000000.0);
         NumberByNumber.put("Billion", 1000000000.0);
         NumberByNumber.put("Trillion", 1000000000000.0);
+        NumberByNumber.put("thousand", 1000.0);
+        NumberByNumber.put("million", 1000000.0);
+        NumberByNumber.put("billion", 1000000000.0);
+        NumberByNumber.put("trillion", 1000000000000.0);
     }
 }
