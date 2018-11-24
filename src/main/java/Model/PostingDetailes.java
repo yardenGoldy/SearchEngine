@@ -1,23 +1,12 @@
 package Model;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
 public class PostingDetailes {
 
-    public int NumOfTermInDoc; //tf
-    public StringBuilder LocationInDoc; // location of the terms in a doc
+    public ArrayList<TermDetailes> PostingList;
 
-    public StringBuilder getLocationInDoc() {return LocationInDoc; }
-
-    public void setLocationInDoc(StringBuilder locationInDoc) {LocationInDoc = locationInDoc;}
-
-    public int getNumOfTermInDoc() {
-        return NumOfTermInDoc;
+    public PostingDetailes(ArrayList<TermDetailes> postingList) {
+        PostingList = postingList;
     }
-
-    public void setNumOfTermInDoc(int numOfTermInDoc) {
-        NumOfTermInDoc = numOfTermInDoc;
-    }
-
-
 }

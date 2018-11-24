@@ -11,7 +11,7 @@ public class TermDetailes {
     public TermDetailes(String docId) {
         DocId = docId;
         Positions = new ArrayList<>();
-        TF = 0;
+        TF = 1;
     }
 
     public String getDocId() {
@@ -21,4 +21,8 @@ public class TermDetailes {
     public int getTF() {return TF;}
 
     public void UpdateTF(){this.TF = TF+1;}
+
+    public void AddPosition(int p){Positions.add(p);}
+
+    public ArrayList<Integer> getPositions() {return Positions;}
 }
