@@ -1,17 +1,14 @@
-package Model;
-
 import java.io.BufferedWriter;
 import java.io.FileWriter;
-import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
 
 public class Indexer {
 
-    public static HashMap<String, DictionaryDetailes> Dictionary; //<Term,Model.DictionaryDetailes>
-    public static HashMap<String, ArrayList<TermDetailes>> Posting; //<DocId,Model.PostingDetailes>
-    public static HashMap<String, ArrayList<TermDetailes>> Cache; //<DocId,Model.PostingDetailes>
+    public static HashMap<String, DictionaryDetailes> Dictionary; //<Term,DictionaryDetailes>
+    public static HashMap<String, ArrayList<TermDetailes>> Posting; //<DocId,PostingDetailes>
+    public static HashMap<String, ArrayList<TermDetailes>> Cache; //<DocId,PostingDetailes>
     public static HashMap<String, CityDetailes> City;       //<City,CityDetailes>   //needed API
     public StringBuilder stb;
     public int NumOfTermsBeforeStemming;
