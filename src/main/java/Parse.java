@@ -20,6 +20,8 @@ public class Parse {
         departments.add(new DateToken());
         departments.add(new PriceToken());
         departments.add(new NumberToken());
+        departments.add(new CapitalLetterToken());
+        departments.add(new RelevanceToken());
     }
 
     // public HashMap<String,HashSet<String>> ParseCorpus(HashMap<String,DocDetailes> Docs, boolean stemmerneeded , String stopwordspath)

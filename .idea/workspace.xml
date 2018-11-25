@@ -2,37 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c91228c9-e31c-457d-aede-2a043f47cc9a" name="Default Changelist" comment="indexer update">
-      <change beforePath="$PROJECT_DIR$/MINIcorpus/FB396001/FB396001" beforeDir="false" afterPath="$PROJECT_DIR$/MINIcorpus/FB396001/FB396001" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MINIcorpus/FB396002/FB396002" beforeDir="false" afterPath="$PROJECT_DIR$/MINIcorpus/FB396002/FB396002" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MINIcorpus/FB396003/FB396003" beforeDir="false" afterPath="$PROJECT_DIR$/MINIcorpus/FB396003/FB396003" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MINIcorpus/FB396004/FB396004" beforeDir="false" afterPath="$PROJECT_DIR$/MINIcorpus/FB396004/FB396004" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MINIcorpus/FB396005/FB396005" beforeDir="false" afterPath="$PROJECT_DIR$/MINIcorpus/FB396005/FB396005" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MINIcorpus/FB396006/FB396006" beforeDir="false" afterPath="$PROJECT_DIR$/MINIcorpus/FB396006/FB396006" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Cache.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Cache.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CapitalLetterToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CapitalLetterToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/CityDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CityDetailes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DateToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DateToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DictionaryDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DictionaryDetailes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/DocDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DocDetailes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/IToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Indexer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Indexer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NumberToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Parse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ParsedResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParsedResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/PercentageToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PercentageToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/PostingDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PostingDetailes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/PriceToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PriceToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/RangeToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RangeToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Ranker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Ranker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SearchEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/SearchEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Searcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Searcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Stemmer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Stemmer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/TermDetailes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/TermDetailes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/RelevanceToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NumberToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Parse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Parse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PriceToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PriceToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/RangeToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RangeToken.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -64,37 +39,39 @@
     <session id="-136075262">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="2" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="6" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="MODULES/mdl-SearchEngine" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="109" />
+          <entry key="java" value="110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="109" />
+          <entry key="JAVA" value="110" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="15" />
-          <entry key="java" value="6930" />
-          <entry key="xml" value="61" />
+          <entry key="java" value="7654" />
+          <entry key="xml" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6930" />
+          <entry key="JAVA" value="7654" />
           <entry key="PLAIN_TEXT" value="15" />
-          <entry key="XML" value="61" />
+          <entry key="XML" value="62" />
         </counts>
       </usages-collector>
     </session>
@@ -140,14 +117,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
               <folding>
-                <marker date="1543089076184" expanded="true" signature="893:1296" ph="..." />
+                <marker date="1543179373310" expanded="true" signature="947:1328" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/RelevanceToken.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -213,6 +199,11 @@
       <find>March</find>
       <find>departments</find>
       <find>HashMap&lt;String,DocDetailes&gt;</find>
+      <find>equals</find>
+      <find>todo</find>
+      <find>ReadFile</find>
+      <find>readfile</find>
+      <find>readfi</find>
     </findStrings>
     <replaceStrings>
       <replace>datesByNumber</replace>
@@ -226,9 +217,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/Cache.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Term.java" />
-        <option value="$PROJECT_DIR$/src/main/java/MyDocument.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/DictionaryDetailes.java" />
         <option value="$PROJECT_DIR$/src/main/java/Indexer.java" />
@@ -256,6 +244,11 @@
         <option value="$PROJECT_DIR$/src/main/java/Model/CityDetailes.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Indexer.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/SearchEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/NumberToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/PercentageToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/PriceToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/RangeToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Model/RelevanceToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Parse.java" />
         <option value="$PROJECT_DIR$/src/main/java/NumberToken.java" />
       </list>
@@ -267,7 +260,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1946" />
     <option name="height" value="1106" />
   </component>
@@ -329,11 +322,11 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543179373116" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543179585386" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
@@ -5438,6 +5431,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+      <changelist id="c91228c9-e31c-457d-aede-2a043f47cc9a" name="Default Changelist" comment="indexer update" />
       <created>1542390571726</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -5446,6 +5440,7 @@
       <workItem from="1542463065014" duration="842000" />
       <workItem from="1542874644292" duration="30943000" />
       <workItem from="1543048424603" duration="16481000" />
+      <workItem from="1543158933672" duration="11258000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1542886180811</created>
@@ -5521,11 +5516,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102655000" />
+    <option name="totallyTimeSpent" value="102897000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23238866" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -5534,7 +5528,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
-      <window_info anchor="bottom" id="Messages" order="0" weight="0.32935324" />
+      <window_info anchor="bottom" id="Messages" order="0" visible="true" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3285968" />
       <window_info anchor="bottom" id="Run" order="3" />
@@ -5631,6 +5625,12 @@
           <line>33</line>
           <properties />
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
+          <line>37</line>
+          <properties />
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -5898,11 +5898,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="170">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
           <folding>
-            <marker date="1543089076184" expanded="true" signature="893:1296" ph="..." />
+            <marker date="1543179373310" expanded="true" signature="947:1328" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/RelevanceToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -5963,7 +5970,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class RangeToken extends NumberToken {
+public class RangeToken extends NumberToken implements IToken{
 
     @Override
     public ParsedResult TryParse(List<String> sentence) {
@@ -9,12 +9,18 @@ public class RangeToken extends NumberToken {
         Integer index = 0;
         int size = sentence.size();
         //todo : handle numbers
-        if (!first.equals("Between") && !first.equals("between")) {
+        if ((!first.equals("Between") && !first.equals("between")) || (!first.equals("form") && !first.equals("Form"))) {
             return null;
-        } else if(size > 3) {
-            index++;
+        }
+        // the size is more than 4
+        else if(size > 3) {
+            index++; //index=1
+            //try parse without the first word (between /from
             ParsedResult firstNumber = super.TryParse(sentence.subList(1, size));
-            if(firstNumber.IsMatch && (firstNumber.Index + 1) < size && sentence.get(firstNumber.Index + 1).equals("and"))
+            if(firstNumber.IsMatch && // We found a suitable department
+                    (firstNumber.Index + 1) < size &&
+                    (((first.equals("Form") || first.equals("form")) && sentence.get(firstNumber.Index + 1).equals("to")) ||
+                            ((first.equals("between") || first.equals("Between")) && sentence.get(firstNumber.Index + 1).equals("and"))))
             {
                 index += firstNumber.Index + 1;
                 if((firstNumber.Index + 2) < size)
@@ -28,6 +34,7 @@ public class RangeToken extends NumberToken {
                 }
             }
         }
+
 
         return new ParsedResult(true, result, index);
     }

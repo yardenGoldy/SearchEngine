@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.List;
 
-public class PriceToken implements IToken {
+public class PriceToken extends NumberToken implements IToken {
     private HashMap<String, Double> NumberByNumber;
 
     public PriceToken() {
@@ -22,7 +22,7 @@ public class PriceToken implements IToken {
 
         //it's not price
         //todo  : change to equals
-        if (first.charAt(0) != '$' || second != "Dollars" || third != "Dollars" || fourth != "Dollars" || second != "dollars" || third != "dollars" || fourth != "dollars") {
+        if (first.charAt(0) != '$' || !second.equals("Dollars") || !third.equals("Dollars") || !fourth.equals("Dollars") || !second.equals("dollars") || !third.equals("dollars") || !fourth.equals("dollars")) {
             return null;
         }
         // if there is $ - cut him
@@ -44,11 +44,11 @@ public class PriceToken implements IToken {
         Double numPrice = Double.parseDouble(firstWithoutCommaAndDollar);
 
         if (numPrice < 1000000) {
-            if (second.contains("/") && (third == "Dollars" || third == "dollars")) {
+            if (second.contains("/") && (third.equals("Dollars") || third.equals("dollars"))) {
                 return new ParsedResult(true, result.append(String.format("%s %s Dollars", first, second)), 3);
             }
             // return number as is - num without fraction
-            else if (!second.contains("/") && (second == "Dollars" || second == "dollars")) {
+            else if (!second.contains("/") && (third.equals("Dollars") || second.equals("Dollars"))) {
                 return new ParsedResult(true, result.append(first).append(" Dollars"), 2);
             } else {
                 return new ParsedResult(true, result.append(withoutDollar).append(" Dollars"), 1);
