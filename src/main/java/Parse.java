@@ -20,7 +20,7 @@ public class Parse {
         departments.add(new DateToken());
         departments.add(new PriceToken());
         departments.add(new NumberToken());
-        departments.add(new CapitalLetterToken());
+        departments.add(new CapitalLetterToken(resultForIndex));
         departments.add(new RelevanceToken());
     }
 
