@@ -1,15 +1,26 @@
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * This department is responsible for price type words
+ * if the word does not belong to the department, return Null value, Otherwise we will parse according to laws
+ */
 public class PriceToken extends NumberToken implements IToken {
     private HashMap<String, Double> NumberByNumber;
 
+    /**
+     * constructor
+     */
     public PriceToken() {
         this.NumberByNumber = new HashMap<>();
         this.InitiateNumber();
     }
 
-    @Override
+    /**
+     *
+     * @param sentence
+     * @return
+     */
     public ParsedResult TryParse(List<String> sentence) {
         int size = sentence.size();
         String first = sentence.get(0);
@@ -75,6 +86,11 @@ public class PriceToken extends NumberToken implements IToken {
         return new ParsedResult(true, result, index);
     }
 
+    /**
+     *
+     * @param num
+     * @return
+     */
     private StringBuilder FinallyParse(Double num) {
         StringBuilder result = new StringBuilder();
         String divResult = String.valueOf(num / 1000000.0).replace(".0", "");
@@ -82,6 +98,11 @@ public class PriceToken extends NumberToken implements IToken {
         return result;
     }
 
+    /**
+     *
+     * @param s
+     * @return
+     */
     public Boolean isNumeric(String s) {
         Boolean res;
         res = (s != null && s.matches("[-+]?\\d*\\.?\\d+"));

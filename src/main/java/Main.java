@@ -4,9 +4,13 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 
 public class Main extends Application {
 
@@ -29,6 +33,20 @@ public class Main extends Application {
 
     }
 
+    public static HashSet<String> InitiateStopWords(){
+        HashSet<String> stopWords = new HashSet<String>();
+        File f = new File("./stop_words.txt");
+        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(f))){
+            String line = bufferedReader.readLine();
+            while (line != null ){
+                stopWords.add(line);
+                line = bufferedReader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stopWords;
+    }
 
     public static void main(String[] args) {
         //launch(args);
@@ -36,8 +54,8 @@ public class Main extends Application {
         try
         {
             HashMap<String,DocDetailes> yarden = rd.ReadAllDocs("C:\\Git\\SearchEngine\\corpus");
-            Parse parse = new Parse();
-            parse.ParseCorpus(new ArrayList<DocDetailes>(yarden.values()), false, null);
+            Parse parse = new Parse(InitiateStopWords());
+            parse.ParseCorpus(new ArrayList<DocDetailes>(yarden.values()), false);
         }
         catch (IOException e)
         {

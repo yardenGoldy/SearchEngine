@@ -1,9 +1,16 @@
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * This department is responsible for date type words
+ * if the word does not belong to the department, return Null value, Otherwise we will parse according to laws
+ */
 public class DateToken implements IToken {
     private HashMap<String, String> datesByNumber;
 
+    /**
+     * constructor
+     */
     public DateToken(){
         datesByNumber = new HashMap<>();
         this.InitiateDates();

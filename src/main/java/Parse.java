@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.*;
 
 
@@ -10,9 +14,13 @@ import java.util.*;
 public class Parse {
     //public static HashMap<String,ArrayList<TermDetailes>> Terms;
     private ArrayList<IToken> departments;
+    // term -> {docId -> {positions, TF}}
     private HashMap<String, HashMap<String, TermDetailes>> resultForIndex;
+    private HashSet<String> stopWords;
+    //array of all stopword
 
-    public Parse() {
+    public Parse(HashSet<String> stopWords) {
+        this.stopWords = stopWords;
         resultForIndex = new HashMap<String, HashMap<String, TermDetailes>>();
         departments = new ArrayList<IToken>();
         departments.add(new RangeToken());
@@ -20,17 +28,16 @@ public class Parse {
         departments.add(new DateToken());
         departments.add(new PriceToken());
         departments.add(new NumberToken());
-        departments.add(new CapitalLetterToken(resultForIndex));
+        departments.add(new CapitalLetterToken(resultForIndex, stopWords));
         departments.add(new RelevanceToken());
     }
 
     // public HashMap<String,HashSet<String>> ParseCorpus(HashMap<String,DocDetailes> Docs, boolean stemmerneeded , String stopwordspath)
-    public ArrayList<DocDetailes> ParseCorpus(ArrayList<DocDetailes> Docs, Boolean isStemmer, ArrayList<String> stopWords) {
+    public ArrayList<DocDetailes> ParseCorpus(ArrayList<DocDetailes> Docs, Boolean isStemmer) {
         ArrayList<DocDetailes> result = new ArrayList<>();
         for (int i = 0; i < Docs.size();i++)
         {
             String currentText = Docs.get(i).DocText;
-            // Todo handle /n /t
             List<String> textSplitted = Arrays.asList(currentText.split("\\s+"));
             StringBuilder resultText = new StringBuilder();
 
@@ -46,7 +53,8 @@ public class Parse {
                 if(parsedResult == null){
                     String currentWork = textSplitted.get(j);
                     // todo : change text to id and index to real index
-                    UpdateInDictionary(currentWork, String.valueOf(i), 6);
+                    // String.valueOf(i) -> Docs.get(i).id
+                    UpdateInDictionary(currentWork, String.valueOf(i), j);
                     resultText.append(currentWork);
                     j++;
                 }
@@ -72,6 +80,11 @@ public class Parse {
 
 
     public void UpdateInDictionary(String wordToAdd, String docId, int index){
+        if(stopWords.contains(wordToAdd.toLowerCase()))
+        {
+            return;
+        }
+
         HashMap<String, TermDetailes> WhereIsFound;
         TermDetailes termToUpload;
         if(!resultForIndex.containsKey(wordToAdd))
@@ -125,17 +138,4 @@ public class Parse {
 
         return null;
     }
-
-//    public void InitiateStopWords(){
-//        File f = new File(this.StopWordsPath);
-//        try(BufferedReader bufferedReader = new BufferedReader(new FileReader(f))){
-//            String line = bufferedReader.readLine();
-//            while (line != null ){
-//                StopWords.add(line);
-//                line = bufferedReader.readLine();
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

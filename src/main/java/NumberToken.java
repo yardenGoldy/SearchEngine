@@ -1,51 +1,29 @@
 import java.util.HashMap;
 import java.util.List;
 
+/**
+ * This department is responsible for digit type words
+ * if the word does not belong to the department, return Null value, Otherwise we will parse according to laws
+ */
 public class NumberToken implements IToken {
     private HashMap< String ,  Double > NumberByNumber;
+
+    /**
+     * constructor
+     */
     public NumberToken(){
         this.NumberByNumber = new HashMap<>();
         this.InitiateNumber();
     }
 
-
     /**
-     *
-     * @param num
-     * @param token
-     * @param suffix
-     * @param div
-     * @return
+     * A function that converts all strings to be real numbers.
+     * multiply each number by its value according to the dictionary
+     * @param sentence list to parse with 8 words or less
+     * size- size of list (sentence)
+     * index - how much words from the sentence we used
+     * @return ParsedResult result after parse
      */
-    private StringBuilder FinallyParse(Double num, String token, char suffix, Double div) {
-        StringBuilder result = new StringBuilder();
-        String divResult = String.valueOf(num/div).replace(".0", "");
-        result.append(divResult);
-        if (token.contains("/")){
-            result.append(" ").append(token);
-        }
-        result.append(suffix);
-        return result;
-    }
-
-    public Boolean isNumeric (String s){
-        Boolean res;
-        res = (s != null && s.matches("[-+]?\\d*\\.?\\d+"));
-        return res;
-    }
-
-    private void InitiateNumber() {
-        NumberByNumber.put("Thousand", 1000.0);
-        NumberByNumber.put("Million", 1000000.0);
-        NumberByNumber.put("Billion", 1000000000.0);
-        NumberByNumber.put("Trillion", 1000000000000.0);
-        NumberByNumber.put("thousand", 1000.0);
-        NumberByNumber.put("million", 1000000.0);
-        NumberByNumber.put("billion", 1000000000.0);
-        NumberByNumber.put("trillion", 1000000000000.0);
-    }
-
-    @Override
     public ParsedResult TryParse(List<String> sentence) {
         int size = sentence.size();
         String first = sentence.get(0);
@@ -54,8 +32,8 @@ public class NumberToken implements IToken {
         StringBuilder result = new StringBuilder();
         Integer index = 1;
 
-        //if the first token is not number
         String firstWithoutComma = first.replaceAll("," , "");
+        //if the first token is not number
         if(!isNumeric(firstWithoutComma)){ return null; }
         else {
             //its number -> parse real Double
@@ -63,7 +41,7 @@ public class NumberToken implements IToken {
             if (NumberByNumber.containsKey(second)){
                 num*= NumberByNumber.get(second);
                 index = 2 ;
-            }
+            }// number with fraction and
             else if( second.contains("/") && NumberByNumber.containsKey(third)){
                 num*= NumberByNumber.get(third);
                 index = 3;
@@ -95,4 +73,43 @@ public class NumberToken implements IToken {
         }
         return new ParsedResult(true , result, index);
     }
+
+    /**
+     * a generic function that operates the rules according to the requirement
+     * @param num -the number we want to parse when converted to double
+     * @param token - the word we are check, when it is a string type
+     * @param suffix - the number type - thousand, million, billion, trillion
+     * @param div - the distribution value according to the dictionary
+     * @return StringBuilder - Value after parse
+     */
+    private StringBuilder FinallyParse(Double num, String token, char suffix, Double div) {
+        StringBuilder result = new StringBuilder();
+        String divResult = String.valueOf(num/div).replace(".0", "");
+        result.append(divResult);
+        if (token.contains("/")){
+            result.append(" ").append(token);
+        }
+        result.append(suffix);
+        return result;
+    }
+
+    // Checks if the string is a number
+    public Boolean isNumeric (String s){
+        Boolean res;
+        res = (s != null && s.matches("[-+]?\\d*\\.?\\d+"));
+        return res;
+    }
+
+    // a dictionary that links the name of the digit with its numerical value
+    private void InitiateNumber() {
+        NumberByNumber.put("Thousand", 1000.0);
+        NumberByNumber.put("Million", 1000000.0);
+        NumberByNumber.put("Billion", 1000000000.0);
+        NumberByNumber.put("Trillion", 1000000000000.0);
+        NumberByNumber.put("thousand", 1000.0);
+        NumberByNumber.put("million", 1000000.0);
+        NumberByNumber.put("billion", 1000000000.0);
+        NumberByNumber.put("trillion", 1000000000000.0);
+    }
+
 }
