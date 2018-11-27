@@ -17,7 +17,6 @@ public class PriceToken extends NumberToken implements IToken {
     }
 
     /**
-     *
      * @param sentence
      * @return
      */
@@ -30,10 +29,10 @@ public class PriceToken extends NumberToken implements IToken {
         StringBuilder result = new StringBuilder();
         String withoutDollar = first;
         Integer index = 1;
+        boolean flag = false ;
 
         //it's not price
-        //todo  : change to equals
-        if (first.charAt(0) != '$' || !second.equals("Dollars") || !third.equals("Dollars") || !fourth.equals("Dollars") || !second.equals("dollars") || !third.equals("dollars") || !fourth.equals("dollars")) {
+        if (first.charAt(0) != '$' && !second.equals("Dollars") && !second.equals("dollars") && !third.equals("Dollars") && !third.equals("dollars") && !fourth.equals("Dollars") && !fourth.equals("dollars")) {
             return null;
         }
         // if there is $ - cut him
@@ -43,6 +42,8 @@ public class PriceToken extends NumberToken implements IToken {
         //if the last char is 'm' so cut him
         else if (first.charAt(withoutDollar.length() - 1) == 'm') {
             withoutDollar = first.substring(0, first.length() - 1);
+            flag = true; //we need to multiply by a million
+
         }
         String firstWithoutCommaAndDollar = withoutDollar.replaceAll(",", "");
 
@@ -51,10 +52,23 @@ public class PriceToken extends NumberToken implements IToken {
             return null;
         }
 
-        //it's number - do parse
+        //it's number - change to number and parse like price
         Double numPrice = Double.parseDouble(firstWithoutCommaAndDollar);
+        if (flag){
+            numPrice *= 1000000;
+        }
 
-        if (numPrice < 1000000) {
+        if (NumberByNumber.containsKey(second)) {
+            numPrice *= NumberByNumber.get(second);
+            if ((third.equals("U.S.") || third.equals("U.S"))  && ((fourth.equals("Dollars") || fourth.equals("dollars")))) {
+                index = 4;
+            } else if (third.equals("Dollars") || third.equals("dollars")) {
+                index = 3;
+            } else {
+                index = 2;
+            }
+            result.append(FinallyParse(numPrice));
+        } else if (numPrice < 1000000) {
             if (second.contains("/") && (third.equals("Dollars") || third.equals("dollars"))) {
                 return new ParsedResult(true, result.append(String.format("%s %s Dollars", first, second)), 3);
             }
@@ -64,17 +78,7 @@ public class PriceToken extends NumberToken implements IToken {
             } else {
                 return new ParsedResult(true, result.append(withoutDollar).append(" Dollars"), 1);
             }
-        } else if (NumberByNumber.containsKey(second)) {
-            numPrice *= NumberByNumber.get(second);
-            if (third == "U.S." && (fourth == "Dollars" || fourth == "dollars")) {
-                index = 4;
-            } else if (third == "Dollars" || third == "dollars") {
-                index = 3;
-            } else {
-                index = 2;
-            }
-            result.append(FinallyParse(numPrice));
-        } else if (numPrice > 1000000 && (second == "Dollars" || second == "dollars")) {
+        } else if (numPrice > 1000000 && (second.equals("Dollars") || second.equals("dollars"))) {
             index = 2;
             result.append(FinallyParse(numPrice));
         } else {
@@ -87,19 +91,17 @@ public class PriceToken extends NumberToken implements IToken {
     }
 
     /**
-     *
      * @param num
      * @return
      */
     private StringBuilder FinallyParse(Double num) {
         StringBuilder result = new StringBuilder();
         String divResult = String.valueOf(num / 1000000.0).replace(".0", "");
-        result.append(divResult).append(" ").append("M").append(" ").append(" Dollars");
+        result.append(divResult).append(" ").append("M").append(" ").append("Dollars");
         return result;
     }
 
     /**
-     *
      * @param s
      * @return
      */
