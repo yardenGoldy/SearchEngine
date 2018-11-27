@@ -8,14 +8,12 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-
 public class ReadFile {
 
     protected File MainPath;
     public ArrayList<File> SubFilesPath;
     public HashMap<String,DocDetailes> Docs; //<DocId,DocDetailes>  sent to parser!!
     public StringBuilder stb;
-
 
     public void ReadFile(){ }
 
@@ -30,7 +28,6 @@ public class ReadFile {
         return Docs;
     }
 
-
     public void ProccessSubFilesDirectories(String path) throws IOException {
         File file = new File(path);
         File [] SubDirectories = file.listFiles();
@@ -43,6 +40,7 @@ public class ReadFile {
     }
 
     public void ProccessSubFilesToDocs(ArrayList<File> subdirectory) throws IOException {
+      //  int couter = 1;  // added by mor
         for (int i = 0; i < subdirectory.size(); i++) {
             File f = new File(subdirectory.get(i).getAbsolutePath());
             try (BufferedReader bfr = new BufferedReader(new FileReader(f))) {
@@ -56,17 +54,21 @@ public class ReadFile {
                 Document d = Jsoup.parse(content);
                 Elements elements = d.getElementsByTag("DOC");
                 for (Element element : elements){
+                    // added by mor
+//                    System.out.println(couter + " " + f.getName());
+//                    couter++;
                     String DocID = element.getElementsByTag("DOCNO").text();
                     String DocText = element.getElementsByTag("TEXT").text();
                     String DocDate = element.getElementsByTag("DATE1").text();
                     String DocTitle = element.getElementsByTag("TI").text();
                     String DocCity = element.getElementsByTag("F").toString();
                     // needed to handle to find city , and change it ti big letters!!
-                    Docs.put(DocID,new DocDetailes(DocText,DocDate,DocTitle,DocCity));
+                    Docs.put(DocID,new DocDetailes(DocID, DocText,DocDate,DocTitle,DocCity));
                 }
             }
         }
     }
+
 }
 
 

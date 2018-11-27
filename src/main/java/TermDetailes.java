@@ -12,9 +12,7 @@ public class TermDetailes {
         TF = 1;
     }
 
-    public String getDocId() {
-        return DocId;
-    }
+    public String getDocId() { return DocId;  }
 
     public int getTF() {return TF;}
 

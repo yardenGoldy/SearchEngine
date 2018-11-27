@@ -2,18 +2,27 @@ public class DocDetailes {
     public int MaxTermFrequency;
     public int NumOfSpecialWords;
     public int DocLength;
+    public String DocID;
     public String DocText;
     public String DocDate;
     public String DocTitle;
     public String City;
 
 
-    public DocDetailes(String docText, String docDate, String docTitle, String city) {
-        DocText = docText;
-        DocDate = docDate;
-        DocTitle = docTitle;
-        City = city;
-        MaxTermFrequency = 0;
+    public DocDetailes(String DocID ,String docText, String docDate, String docTitle, String city) {
+        this.DocID = DocID;
+        this.DocText = docText;
+        this.DocDate = docDate;
+        this.DocTitle = docTitle;
+        this.City = city;
+        this.MaxTermFrequency = 0;
+    }
+    public String getDocID() {
+        return DocID;
+    }
+
+    public void setDocID(String DocID) {
+        DocID = DocID;
     }
 
     public int getMaxTermFrequency() {return MaxTermFrequency;}

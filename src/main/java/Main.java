@@ -15,7 +15,6 @@ import java.util.HashSet;
 public class Main extends Application {
 
     SearchEngine searchEngine;
-
     {
         try {
             searchEngine = new SearchEngine("/Users/eranedri/IdeaProjects/SearchEngine/MINIcorpus","/Users/eranedri/IdeaProjects/SearchEngine/stop_words.txt",false);
@@ -53,9 +52,9 @@ public class Main extends Application {
         ReadFile rd = new ReadFile();
         try
         {
-            HashMap<String,DocDetailes> yarden = rd.ReadAllDocs("C:\\Git\\SearchEngine\\corpus");
+            HashMap<String,DocDetailes> corpus = rd.ReadAllDocs("C:\\Git\\SearchEngine\\corpus");
             Parse parse = new Parse(InitiateStopWords());
-            parse.ParseCorpus(new ArrayList<DocDetailes>(yarden.values()), false);
+            parse.ParseCorpus(new ArrayList<DocDetailes>(corpus.values()), false);
         }
         catch (IOException e)
         {
@@ -64,13 +63,6 @@ public class Main extends Application {
     }
 }
 
-//        for yuval computer only!!
-
-
-
-//      "/Users/eranedri/IdeaProjects/SearchEngine/corpus"
-//    "/Users/eranedri/IdeaProjects/SearchEngine/MINIcorpus"
-
-/// to do : 1.replace all strings to stringbuilder
-//          2. to check that docs,dictionary,posting,cache create only once
-//          3. to keep encapsulation on every field
+// todo - replace all strings to stringbuilder
+//todo - to check that docs,dictionary,posting,cache create only once
+//todo - to keep encapsulation on every field

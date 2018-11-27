@@ -4,15 +4,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-
 // for yuval :
 // 1. update for each doc his length without stopwords only verified tokens -- use: public void setDocLength(int docLength) {DocLength = docLength;}
-// 2. pay attention that we add a field of position of every word in a doc , look the update of TermDetailes
-// 3. remember that what i get back from the parse is : HashMap<String,ArrayList<TermDetailes>> Terms;
-
 
 public class Parse {
-    //public static HashMap<String,ArrayList<TermDetailes>> Terms;
     private ArrayList<IToken> departments;
     // term -> {docId -> {positions, TF}}
     private HashMap<String, HashMap<String, TermDetailes>> resultForIndex;
@@ -54,7 +49,7 @@ public class Parse {
                     String currentWork = textSplitted.get(j);
                     // todo : change text to id and index to real index
                     // String.valueOf(i) -> Docs.get(i).id
-                    UpdateInDictionary(currentWork, String.valueOf(i), j);
+                    UpdateInDictionary(currentWork, (Docs.get(i)).getDocID(), j);
                     resultText.append(currentWork);
                     j++;
                 }
@@ -62,7 +57,7 @@ public class Parse {
                 else
                 {
                     resultText = resultText.append(parsedResult.ParsedSentence);
-                    UpdateInDictionary(parsedResult.ParsedSentence.toString(), String.valueOf(i), 6);
+                    UpdateInDictionary(parsedResult.ParsedSentence.toString(), (Docs.get(i)).getDocID(), 6);
                     j += parsedResult.Index;
                 }
                 resultText.append(" ");
@@ -74,34 +69,57 @@ public class Parse {
             parsedDoc.setDocText(resultText.toString());
             result.add(parsedDoc);
         }
-
+    // print the dictionary
+        for (Map.Entry<String,HashMap<String,TermDetailes>> entry:resultForIndex.entrySet()){
+            System.out.print(entry.getKey() + ": ");
+            for (Map.Entry<String,TermDetailes> doc:entry.getValue().entrySet()){
+                System.out.print("<" +  doc.getKey() + " , " + doc.getValue().toString() + "> -> ");
+            }
+            System.out.println();
+        }
         return result;
     }
 
 
     public void UpdateInDictionary(String wordToAdd, String docId, int index){
+        //If the word is stopWord we don't add to dictionary
         if(stopWords.contains(wordToAdd.toLowerCase()))
         {
             return;
         }
-
-        HashMap<String, TermDetailes> WhereIsFound;
-        TermDetailes termToUpload;
+        HashMap<String, TermDetailes> which_document;
+        TermDetailes term_Detail_Per_Doc;
+        // If the word does not exist in the dictionary , we'll create a new one
         if(!resultForIndex.containsKey(wordToAdd))
         {
-            WhereIsFound = new HashMap<String, TermDetailes>();
-            termToUpload = new TermDetailes(docId);
+            which_document = new HashMap<String, TermDetailes>();
+            term_Detail_Per_Doc = new TermDetailes(docId);
+            term_Detail_Per_Doc.UpdateTF();
+            term_Detail_Per_Doc.Positions.add(index);
+            which_document.put(docId, term_Detail_Per_Doc);
+            resultForIndex.put(wordToAdd,which_document);
         }
+        //the word exists in the dictionary
         else
         {
-            WhereIsFound = resultForIndex.get(wordToAdd);
-            termToUpload = resultForIndex.get(wordToAdd).get(docId);
+            //the word exists in the dictionary per docId
+            if (resultForIndex.containsKey(resultForIndex.get(wordToAdd).get(docId)))
+            {
+                which_document = resultForIndex.get(wordToAdd);
+                term_Detail_Per_Doc = resultForIndex.get(wordToAdd).get(docId);
+            }
+            //the word exists in the dictionary but for another document
+            else {
+                //which_document = new HashMap<String, TermDetailes>();
+                term_Detail_Per_Doc = new TermDetailes(docId);
+            }
+            term_Detail_Per_Doc.UpdateTF();
+            term_Detail_Per_Doc.Positions.add(index);
+            resultForIndex.get(wordToAdd).put(docId,term_Detail_Per_Doc);
         }
 
-        termToUpload.UpdateTF();
-        termToUpload.Positions.add(index);
-        WhereIsFound.put(docId, termToUpload);
-        resultForIndex.put(wordToAdd, WhereIsFound);
+        //which_document.put(docId, term_Detail_Per_Doc);
+
     }
 
     public void removeSpecialChars(List<String> sentenceToCheck){
