@@ -28,7 +28,7 @@ public class Parse {
     }
 
     // public HashMap<String,HashSet<String>> ParseCorpus(HashMap<String,DocDetailes> Docs, boolean stemmerneeded , String stopwordspath)
-    public ArrayList<DocDetailes> ParseCorpus(ArrayList<DocDetailes> Docs, Boolean isStemmer) {
+    public HashMap<String, HashMap<String, TermDetailes>> ParseCorpus(ArrayList<DocDetailes> Docs, Boolean isStemmer) {
         ArrayList<DocDetailes> result = new ArrayList<>();
         for (int i = 0; i < Docs.size();i++)
         {
@@ -77,12 +77,14 @@ public class Parse {
             }
             System.out.println();
         }
-        return result;
+        return resultForIndex;
     }
 
 
     public void UpdateInDictionary(String wordToAdd, String docId, int index){
         //If the word is stopWord we don't add to dictionary
+        String wordToAddBigLetter = wordToAdd.toUpperCase();
+        String wordToAddSmallLetter = wordToAdd.toLowerCase();
 
         if(wordToAdd.equals(".") || stopWords.contains(wordToAdd.toLowerCase()))
         {
@@ -91,7 +93,7 @@ public class Parse {
         HashMap<String, TermDetailes> which_document;
         TermDetailes term_Detail_Per_Doc;
         // If the word does not exist in the dictionary , we'll create a new one
-        if(!resultForIndex.containsKey(wordToAdd))
+        if(!resultForIndex.containsKey(wordToAddBigLetter) && !resultForIndex.containsKey(wordToAddSmallLetter))
         {
             which_document = new HashMap<String, TermDetailes>();
             term_Detail_Per_Doc = new TermDetailes(docId);
@@ -103,9 +105,11 @@ public class Parse {
         //the word exists in the dictionary
         else
         {
+            wordToAdd = resultForIndex.containsKey(wordToAddBigLetter) ? wordToAdd.toUpperCase() : wordToAdd.toLowerCase();
             //the word exists in the dictionary per docId
-            if (resultForIndex.containsKey(resultForIndex.get(wordToAdd).get(docId)))
+            if (resultForIndex.get(wordToAdd).containsKey(docId))
             {
+
                 which_document = resultForIndex.get(wordToAdd);
                 term_Detail_Per_Doc = resultForIndex.get(wordToAdd).get(docId);
             }

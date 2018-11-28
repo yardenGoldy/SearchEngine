@@ -3,21 +3,35 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 
+/**\
+ * This department is responsible for capital letter type words
+ * if the word does not belong to the department, return Null value, Otherwise we will parse according to laws
+ */
 public class CapitalLetterToken implements IToken {
 
     private HashMap<String, HashMap<String, TermDetailes>> dictForIndex;
     private HashSet<String> stopWords;
+
+    /**
+     * constructor
+     * @param dict - dictionary of all the term from the corpus
+     * @param stopWords - hash set of all the stop word we need ignore of them
+     */
     public CapitalLetterToken(HashMap<String, HashMap<String, TermDetailes>> dict, HashSet<String> stopWords)
     {
         this.stopWords = stopWords;
         this.dictForIndex = dict;
     }
 
-    @Override
+    /**
+     * A function that parse the words in the corpus according to the set rules
+     * @param sentence - word we need check
+     * @return - result after parse
+     */
     public ParsedResult TryParse(List<String> sentence)
     {
         String first = sentence.get(0);
-
+        // check if all the char is letter
         for (int i = 0; i < first.length();i++)
         {
             if(!Character.isLetter(first.charAt(i)))
@@ -32,15 +46,11 @@ public class CapitalLetterToken implements IToken {
         Integer index = 1;
         StringBuilder result = new StringBuilder();
 
-        // if the first char is capital letter - change all the char.
-        if (!Character.isUpperCase(first.charAt(0)) || this.stopWords.contains(lowerCase)){
+
+        // if the first char is not capital letter and the work contain in the dictionary on capital case or the word is stop word
+        if ((!Character.isUpperCase(first.charAt(0)) && !dictForIndex.containsKey(capitalCase)) || this.stopWords.contains(lowerCase)){
             return null;
         }
-//
-//        //if this stopWord
-//        if (stopWord.containsKey(first)){
-//            return  null;
-//        }
 
         //check if the word in the dictionary is in capital letters and our word is with lowercase letters
         if (this.dictForIndex.containsKey(capitalCase)&& Character.isLowerCase(first.charAt(0))){
