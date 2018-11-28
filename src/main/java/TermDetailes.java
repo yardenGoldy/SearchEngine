@@ -9,14 +9,14 @@ public class TermDetailes {
     public TermDetailes(String docId) {
         DocId = docId;
         Positions = new ArrayList<>();
-        TF = 1;
+        TF = 0;
     }
 
     public String getDocId() { return DocId;  }
 
     public int getTF() {return TF;}
 
-    public void UpdateTF(){this.TF = TF+1;}
+    public void UpdateTF(){this.TF = TF + 1;}
 
     public void AddPosition(int p){Positions.add(p);}
 

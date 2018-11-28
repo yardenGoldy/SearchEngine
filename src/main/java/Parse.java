@@ -57,7 +57,7 @@ public class Parse {
                 else
                 {
                     resultText = resultText.append(parsedResult.ParsedSentence);
-                    UpdateInDictionary(parsedResult.ParsedSentence.toString(), (Docs.get(i)).getDocID(), 6);
+                    UpdateInDictionary(parsedResult.ParsedSentence.toString(), (Docs.get(i)).getDocID(), j);
                     j += parsedResult.Index;
                 }
                 resultText.append(" ");
@@ -83,7 +83,8 @@ public class Parse {
 
     public void UpdateInDictionary(String wordToAdd, String docId, int index){
         //If the word is stopWord we don't add to dictionary
-        if(stopWords.contains(wordToAdd.toLowerCase()))
+
+        if(wordToAdd.equals(".") || stopWords.contains(wordToAdd.toLowerCase()))
         {
             return;
         }
@@ -127,7 +128,10 @@ public class Parse {
         for (int i = 0; i < sentenceSize;i++){
             String current = sentenceToCheck.get(i);
             int wordSize = current.length();
-            if(wordSize > 2)
+            if(wordSize == 1 && !Character.isDigit(current.charAt(0)) && !(Character.isLetter(current.charAt(0)))){
+                sentenceToCheck.set(i, ".");
+            }
+            else if(wordSize > 2)
             {
                 char firstChar = current.charAt(0);
                 char lastChar = current.charAt(wordSize - 1);
