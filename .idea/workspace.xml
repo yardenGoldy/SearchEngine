@@ -2,15 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c91228c9-e31c-457d-aede-2a043f47cc9a" name="Default Changelist" comment="indexer update">
-      <change beforePath="$PROJECT_DIR$/src/main/java/CapitalLetterToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CapitalLetterToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DateToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DateToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/IToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/NumberToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/NumberToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ParsedResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParsedResult.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corpus/LA122889/LA122889" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/PercentageToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PercentageToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/PriceToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/PriceToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RangeToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RangeToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/RelevanceToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/RelevanceToken.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/CapitalLetterToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/CapitalLetterToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/DateToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/DateToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/NumberToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/NumberToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PercentageToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PercentageToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/PriceToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/PriceToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RangeToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RangeToken.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/RelevanceToken.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/RelevanceToken.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,26 +59,26 @@
           <entry key="MODULES/mdl-SearchEngine" value="1" />
           <entry key="class" value="1" />
           <entry key="iml" value="1" />
-          <entry key="java" value="180" />
+          <entry key="java" value="183" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
           <entry key="IDEA_MODULE" value="1" />
-          <entry key="JAVA" value="180" />
+          <entry key="JAVA" value="183" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="15" />
-          <entry key="java" value="13631" />
+          <entry key="java" value="13633" />
           <entry key="xml" value="62" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13631" />
+          <entry key="JAVA" value="13633" />
           <entry key="PLAIN_TEXT" value="15" />
           <entry key="XML" value="62" />
         </counts>
@@ -90,64 +91,35 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Parse.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="55" column="44" lean-forward="true" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
+            <state relative-caret-position="185">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <marker date="1543337554045" expanded="true" signature="416:681" ph="..." />
+                <marker date="1543337554045" expanded="true" signature="1594:1988" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/RangeToken.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Parse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="63" selection-start-line="24" selection-start-column="63" selection-end-line="24" selection-end-column="63" />
+            <state relative-caret-position="17">
+              <caret line="44" selection-start-line="44" selection-end-line="44" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/RelevanceToken.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/PercentageToken.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/CapitalLetterToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="53" column="53" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="53" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/NumberToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="57" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/DateToken.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="21" column="58" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+            <state relative-caret-position="94">
+              <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -237,12 +209,12 @@
         <option value="$PROJECT_DIR$/src/main/java/ParsedResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/NumberToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/CapitalLetterToken.java" />
-        <option value="$PROJECT_DIR$/src/main/java/PercentageToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/PriceToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/IToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/DateToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/RangeToken.java" />
         <option value="$PROJECT_DIR$/src/main/java/RelevanceToken.java" />
+        <option value="$PROJECT_DIR$/src/main/java/PercentageToken.java" />
       </list>
     </option>
   </component>
@@ -304,7 +276,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543523957852" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543525587946" />
     <property name="last_opened_file_path" value="$USER_HOME$/OneDrive/שולחן העבודה/שנה ד/סיסמטר ז/בינה מלאכותית/עבודה 1/Programming Assignment 1" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -355,7 +327,7 @@
       <workItem from="1543048424603" duration="16481000" />
       <workItem from="1543158933672" duration="11258000" />
       <workItem from="1543338712852" duration="150000" />
-      <workItem from="1543338890413" duration="48661000" />
+      <workItem from="1543338890413" duration="50100000" />
     </task>
     <task id="LOCAL-00001" summary="Default Changelist">
       <created>1542886180811</created>
@@ -431,13 +403,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188618000" />
+    <option name="totallyTimeSpent" value="190057000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49499" visible="true" weight="0.2866397" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49499" visible="true" weight="0.24129555" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -448,8 +420,8 @@
       <window_info anchor="bottom" id="Messages" order="0" weight="0.3285968" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3285968" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.1009009" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.3143872" />
+      <window_info anchor="bottom" id="Run" order="3" weight="0.3285968" />
+      <window_info active="true" anchor="bottom" id="Debug" order="4" visible="true" weight="0.3143872" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -571,22 +543,16 @@
           <option name="timeStamp" value="139" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Main.java</url>
-          <line>56</line>
-          <properties />
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/Parse.java</url>
           <line>51</line>
           <properties />
           <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/Parse.java</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/src/main/java/PercentageToken.java</url>
+          <line>14</line>
           <properties />
-          <option name="timeStamp" value="149" />
+          <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint type="java-method">
           <url>file://$PROJECT_DIR$/src/main/java/RangeToken.java</url>
@@ -604,6 +570,8 @@
     <watches-manager>
       <configuration name="Application">
         <watch expression="i" language="JAVA" />
+        <watch expression="!first.endsWith(&quot;%&quot;)" language="JAVA" />
+        <watch expression="second.equals(&quot;percent&quot;)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
@@ -662,6 +630,16 @@
     </expressions>
     <expressions id="watch">
       <expression>
+        <expression-string>second.equals(&quot;percent&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>!first.endsWith(&quot;%&quot;)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>i</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -698,16 +676,6 @@
       </expression>
       <expression>
         <expression-string>docId</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>resultForIndex</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>sentenceToCheck.get(i).substring(0, wordSize - 2</expression-string>
         <language-id>JAVA</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -890,17 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="56" selection-start-line="56" selection-end-line="56" />
-          <folding>
-            <marker date="1543337554045" expanded="true" signature="416:681" ph="..." />
-            <marker date="1543337554045" expanded="true" signature="1594:1988" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ParsedResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="193">
@@ -917,13 +874,6 @@
             <element signature="method#FinallyParse#0;class#PriceToken#0" />
             <element signature="method#isNumeric#0;class#PriceToken#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/PercentageToken.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-318">
-          <caret line="8" column="35" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -952,16 +902,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Parse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="55" column="44" lean-forward="true" selection-start-line="55" selection-start-column="44" selection-end-line="55" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/NumberToken.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -979,13 +919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/CapitalLetterToken.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/RelevanceToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="53" column="53" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="289">
+          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -996,10 +933,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/RelevanceToken.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/CapitalLetterToken.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
+        <state relative-caret-position="348">
+          <caret line="53" column="53" selection-start-line="53" selection-start-column="42" selection-end-line="53" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+          <folding>
+            <marker date="1543337554045" expanded="true" signature="416:681" ph="..." />
+            <marker date="1543337554045" expanded="true" signature="1594:1988" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Parse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/PercentageToken.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
         </state>
       </provider>
     </entry>

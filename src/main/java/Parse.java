@@ -90,6 +90,7 @@ public class Parse {
             }
             System.out.println();
         }
+        System.out.println("DONE");
         return resultForIndex;
     }
 

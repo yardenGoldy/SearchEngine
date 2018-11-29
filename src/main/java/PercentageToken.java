@@ -20,7 +20,7 @@ public class PercentageToken implements IToken {
         StringBuilder result = new StringBuilder();
         Integer index = 1;
         // it's not percent
-        if (!first.endsWith("%") && (second.equals("percent") || second.equals("percentage"))) {
+        if (!first.endsWith("%") && (!second.equals("percent") || !second.equals("percentage"))) {
             return null;
         }
         // last char is percent -'%' and the first token is number
