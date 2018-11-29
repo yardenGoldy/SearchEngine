@@ -17,8 +17,11 @@ public class PriceToken extends NumberToken implements IToken {
     }
 
     /**
-     * @param sentence
-     * @return
+     * A function that converts all strings to be real numbers.
+     * multiply each number by its value according to the dictionary
+     *
+     * @param sentence - list to parse with 8 words or less
+     * @return - arsedResult result after parse
      */
     public ParsedResult TryParse(List<String> sentence) {
         int size = sentence.size();
@@ -29,7 +32,7 @@ public class PriceToken extends NumberToken implements IToken {
         StringBuilder result = new StringBuilder();
         String withoutDollar = first;
         Integer index = 1;
-        boolean flag = false ;
+        boolean flag = false;
 
         //it's not price
         if (first.charAt(0) != '$' && !second.equals("Dollars") && !second.equals("dollars") && !third.equals("Dollars") && !third.equals("dollars") && !fourth.equals("Dollars") && !fourth.equals("dollars")) {
@@ -54,13 +57,13 @@ public class PriceToken extends NumberToken implements IToken {
 
         //it's number - change to number and parse like price
         Double numPrice = Double.parseDouble(firstWithoutCommaAndDollar);
-        if (flag){
+        if (flag) {
             numPrice *= 1000000;
         }
 
         if (NumberByNumber.containsKey(second)) {
             numPrice *= NumberByNumber.get(second);
-            if ((third.equals("U.S.") || third.equals("U.S"))  && ((fourth.equals("Dollars") || fourth.equals("dollars")))) {
+            if ((third.equals("U.S.") || third.equals("U.S")) && ((fourth.equals("Dollars") || fourth.equals("dollars")))) {
                 index = 4;
             } else if (third.equals("Dollars") || third.equals("dollars")) {
                 index = 3;
@@ -85,14 +88,16 @@ public class PriceToken extends NumberToken implements IToken {
             index = 1;
             result.append(FinallyParse(numPrice));
         }
-        //it's number with fraction and dollar - 22 3/4 Dollars
 
+        //it's number with fraction and dollar - 22 3/4 Dollars
         return new ParsedResult(true, result, index);
     }
 
     /**
-     * @param num
-     * @return
+     * Generic function that parse to words that are from the class of prices
+     *
+     * @param num - A number to parse
+     * @return - String after parse
      */
     private StringBuilder FinallyParse(Double num) {
         StringBuilder result = new StringBuilder();
@@ -102,8 +107,10 @@ public class PriceToken extends NumberToken implements IToken {
     }
 
     /**
-     * @param s
-     * @return
+     * Checks if the string is a number
+     *
+     * @param s - String to check whether it is a number
+     * @return - Boolean If the word is a number, return true if so
      */
     public Boolean isNumeric(String s) {
         Boolean res;
@@ -111,6 +118,9 @@ public class PriceToken extends NumberToken implements IToken {
         return res;
     }
 
+    /**
+     * a dictionary that links the name of the digit with its numerical value
+     */
     private void InitiateNumber() {
         NumberByNumber.put("Thousand", 1000.0);
         NumberByNumber.put("thousand", 1000.0);

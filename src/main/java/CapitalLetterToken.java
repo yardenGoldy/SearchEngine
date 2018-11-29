@@ -46,12 +46,10 @@ public class CapitalLetterToken implements IToken {
         Integer index = 1;
         StringBuilder result = new StringBuilder();
 
-
         // if the first char is not capital letter and the work contain in the dictionary on capital case or the word is stop word
         if ((!Character.isUpperCase(first.charAt(0)) && !dictForIndex.containsKey(capitalCase)) || this.stopWords.contains(lowerCase)){
             return null;
         }
-
         //check if the word in the dictionary is in capital letters and our word is with lowercase letters
         if (this.dictForIndex.containsKey(capitalCase)&& Character.isLowerCase(first.charAt(0))){
             this.dictForIndex.put(lowerCase, this.dictForIndex.get(capitalCase));
@@ -62,7 +60,6 @@ public class CapitalLetterToken implements IToken {
         else {
             result.append(capitalCase);
         }
-
         return new ParsedResult(true, result, index);
     }
 }
