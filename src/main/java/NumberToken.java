@@ -25,6 +25,7 @@ public class NumberToken implements IToken {
      * @return ParsedResult result after parse
      */
     public ParsedResult TryParse(List<String> sentence) {
+        long startTime = System.nanoTime();
         int size = sentence.size();
         String first = sentence.get(0);
         //if size > 1 so second = sentence.get(1) else second = ""
@@ -36,7 +37,13 @@ public class NumberToken implements IToken {
 
         String firstWithoutComma = first.replaceAll("," , "");
         //if the first token is not number
-        if(!isNumeric(firstWithoutComma)){ return null; }
+        if(!isNumeric(firstWithoutComma)){
+            long endTime = System.nanoTime();
+            if(((endTime - startTime)) > 10000000)
+            {
+                System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
+            }
+            return null; }
         else {
             //its number -> parse real Double
             Double num = Double.parseDouble(firstWithoutComma);
@@ -50,10 +57,20 @@ public class NumberToken implements IToken {
             }
             // return number as is - num without fraction
             if (num < 1000 && !second.contains("/")) {
+                long endTime = System.nanoTime();
+                if(((endTime - startTime)) > 10000000)
+                {
+                    System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
+                }
                 return new ParsedResult(true , result.append(firstWithoutComma), 1);
             }
             //return number as is with fraction
             else if (num < 1000 && second.contains("/")) {
+                long endTime = System.nanoTime();
+                if(((endTime - startTime)) > 10000000)
+                {
+                    System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
+                }
                 return new ParsedResult(true , result.append(String.format(" %s %s", firstWithoutComma, second)), 2);
             }
             //Thousand
@@ -72,6 +89,11 @@ public class NumberToken implements IToken {
             else if (num >= 1000000000000.0){
                 result.append(FinallyParse (num ,second, 'B' ,NumberByNumber.get("Billion")));
             }
+        }
+        long endTime = System.nanoTime();
+        if(((endTime - startTime)) > 10000000)
+        {
+            System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
         }
         return new ParsedResult(true , result, index);
     }

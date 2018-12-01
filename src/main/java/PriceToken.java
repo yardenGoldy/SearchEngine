@@ -24,6 +24,7 @@ public class PriceToken extends NumberToken implements IToken {
      * @return - arsedResult result after parse
      */
     public ParsedResult TryParse(List<String> sentence) {
+        long startTime = System.nanoTime();
         int size = sentence.size();
         String first = sentence.get(0);
         String second = size > 1 ? sentence.get(1) : "";
@@ -36,6 +37,11 @@ public class PriceToken extends NumberToken implements IToken {
 
         //it's not price
         if (first.charAt(0) != '$' && !second.equals("Dollars") && !second.equals("dollars") && !third.equals("Dollars") && !third.equals("dollars") && !fourth.equals("Dollars") && !fourth.equals("dollars")) {
+            long endTime = System.nanoTime();
+            if(((endTime - startTime)) > 10000000)
+            {
+                System.out.println("time for price is " + ((endTime - startTime) / 1000000));
+            }
             return null;
         }
         // if there is $ - cut him
@@ -52,6 +58,11 @@ public class PriceToken extends NumberToken implements IToken {
 
         //if the first token is not number
         if (!isNumeric(firstWithoutCommaAndDollar)) {
+            long endTime = System.nanoTime();
+            if(((endTime - startTime)) > 10000000)
+            {
+                System.out.println("time for price is " + ((endTime - startTime) / 1000000));
+            }
             return null;
         }
 
@@ -73,12 +84,27 @@ public class PriceToken extends NumberToken implements IToken {
             result.append(FinallyParse(numPrice));
         } else if (numPrice < 1000000) {
             if (second.contains("/") && (third.equals("Dollars") || third.equals("dollars"))) {
+                long endTime = System.nanoTime();
+                if(((endTime - startTime)) > 10000000)
+                {
+                    System.out.println("time for price is " + ((endTime - startTime) / 1000000));
+                }
                 return new ParsedResult(true, result.append(String.format("%s %s Dollars", first, second)), 3);
             }
             // return number as is - num without fraction
             else if (!second.contains("/") && (third.equals("Dollars") || second.equals("Dollars"))) {
+                long endTime = System.nanoTime();
+                if(((endTime - startTime)) > 10000000)
+                {
+                    System.out.println("time for price is " + ((endTime - startTime) / 1000000));
+                }
                 return new ParsedResult(true, result.append(first).append(" Dollars"), 2);
             } else {
+                long endTime = System.nanoTime();
+                if(((endTime - startTime)) > 10000000)
+                {
+                    System.out.println("time for price is " + ((endTime - startTime) / 1000000));
+                }
                 return new ParsedResult(true, result.append(withoutDollar).append(" Dollars"), 1);
             }
         } else if (numPrice > 1000000 && (second.equals("Dollars") || second.equals("dollars"))) {
@@ -89,6 +115,11 @@ public class PriceToken extends NumberToken implements IToken {
             result.append(FinallyParse(numPrice));
         }
 
+        long endTime = System.nanoTime();
+        if(((endTime - startTime)) > 10000000)
+        {
+            System.out.println("time for price is " + ((endTime - startTime) / 1000000));
+        }
         //it's number with fraction and dollar - 22 3/4 Dollars
         return new ParsedResult(true, result, index);
     }

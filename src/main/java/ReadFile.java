@@ -47,7 +47,7 @@ public class ReadFile {
                 stb = new StringBuilder();
                 String line = bfr.readLine();
                 while (line != null) {
-                    stb.append(line);
+                    stb.append(" " + line);
                     line = bfr.readLine();
                 }
                 String content = stb.toString();

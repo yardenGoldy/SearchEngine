@@ -23,7 +23,13 @@ public class DateToken implements IToken {
      * @return - An object that returns values ​​for the word we have parse.
      */
     public ParsedResult TryParse(List<String> sentence) {
+        long startTime = System.nanoTime();
         if (sentence.size() < 2) {
+            long endTime = System.nanoTime();
+            if(((endTime - startTime)) > 10000000)
+            {
+                System.out.println("time for date is " + ((endTime - startTime) / 1000000));
+            }
             return null;
         }
 
@@ -50,6 +56,12 @@ public class DateToken implements IToken {
                 parsedSentence.append(String.format("%s-%s", second, datesByNumber.get(first)));
                 isMatch = true;
             }
+        }
+
+        long endTime = System.nanoTime();
+        if(((endTime - startTime)) > 10000000)
+        {
+            System.out.println("time for date is " + ((endTime - startTime) / 1000000));
         }
         return new ParsedResult(isMatch, parsedSentence, 2);
     }

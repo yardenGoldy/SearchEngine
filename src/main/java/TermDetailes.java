@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class TermDetailes {
     public String DocId;
     public int TF;
-    public ArrayList<Integer> Positions;
+    public ArrayList<Integer> Positions; //todo- change to stringBuilder
 
 
     public TermDetailes(String docId) {

@@ -30,12 +30,18 @@ public class CapitalLetterToken implements IToken {
      */
     public ParsedResult TryParse(List<String> sentence)
     {
+        long startTime = System.nanoTime();
         String first = sentence.get(0);
         // check if all the char is letter
         for (int i = 0; i < first.length();i++)
         {
             if(!Character.isLetter(first.charAt(i)))
             {
+                long endTime = System.nanoTime();
+                if(((endTime - startTime)) > 10000000)
+                {
+                    System.out.println("time for Capital is " + ((endTime - startTime) / 1000000));
+                }
                 return null;
             }
         }
@@ -48,6 +54,11 @@ public class CapitalLetterToken implements IToken {
 
         // if the first char is not capital letter and the work contain in the dictionary on capital case or the word is stop word
         if ((!Character.isUpperCase(first.charAt(0)) && !dictForIndex.containsKey(capitalCase)) || this.stopWords.contains(lowerCase)){
+            long endTime = System.nanoTime();
+            if(((endTime - startTime)) > 10000000)
+            {
+                System.out.println("time for Capital is " + ((endTime - startTime) / 1000000));
+            }
             return null;
         }
         //check if the word in the dictionary is in capital letters and our word is with lowercase letters
@@ -59,6 +70,11 @@ public class CapitalLetterToken implements IToken {
         // A new term , add to the hashMap
         else {
             result.append(capitalCase);
+        }
+        long endTime = System.nanoTime();
+        if(((endTime - startTime)) > 10000000)
+        {
+            System.out.println("time for Capital is " + ((endTime - startTime) / 1000000));
         }
         return new ParsedResult(true, result, index);
     }

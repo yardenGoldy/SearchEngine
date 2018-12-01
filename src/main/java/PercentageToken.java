@@ -12,6 +12,7 @@ public class PercentageToken implements IToken {
      * @return - An object that returns values ​​for the word we have parse.
      */
     public ParsedResult TryParse(List<String> sentence) {
+        long startTime = System.nanoTime();
         int size = sentence.size();
         String first = sentence.get(0);
         //if size>1 so second = sentence.get(1) else second = ""
@@ -21,6 +22,11 @@ public class PercentageToken implements IToken {
         Integer index = 1;
         // it's not percent
         if (!first.endsWith("%") && (!second.equals("percent") || !second.equals("percentage"))) {
+            long endTime = System.nanoTime();
+            if(((endTime - startTime)) > 10000000)
+            {
+                System.out.println("time for precentage is " + ((endTime - startTime) / 1000000));
+            }
             return null;
         }
         // last char is percent -'%' and the first token is number
@@ -33,6 +39,11 @@ public class PercentageToken implements IToken {
         // the second token is 'percent' or 'percentage' anf the first token is number
         else if (isNumeric(first) && (second.equals("percent") || second.equals("percentage"))) {
             index = 2;
+        }
+        long endTime = System.nanoTime();
+        if(((endTime - startTime)) > 10000000)
+        {
+            System.out.println("time for precentage is " + ((endTime - startTime) / 1000000));
         }
         return new ParsedResult(true, result.append(first).append('%'), index);
     }
