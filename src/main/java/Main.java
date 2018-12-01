@@ -17,7 +17,7 @@ public class Main extends Application {
     SearchEngine searchEngine;
     {
         try {
-            searchEngine = new SearchEngine("/Users/eranedri/IdeaProjects/SearchEngine/MINIcorpus","/Users/eranedri/IdeaProjects/SearchEngine/stop_words.txt",false);
+            searchEngine = new SearchEngine("/Users/eranedri/IdeaProjects/SearchEngine/corpus","/Users/eranedri/IdeaProjects/SearchEngine/stop_words.txt",false);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -49,12 +49,13 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         //launch(args);
+        Boolean isStemmer = true;
         ReadFile rd = new ReadFile();
         try
         {
             HashMap<String,DocDetailes> corpus = rd.ReadAllDocs("C:\\Git\\SearchEngine\\corpus");
-            Parse parse = new Parse(InitiateStopWords());
-            parse.ParseCorpus(new ArrayList<DocDetailes>(corpus.values()), false);
+            Parse parse = new Parse(InitiateStopWords(), isStemmer);
+            parse.ParseCorpus(new ArrayList<DocDetailes>(corpus.values()));
         }
         catch (IOException e)
         {

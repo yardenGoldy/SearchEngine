@@ -10,6 +10,7 @@ import java.util.*;
  */
 public class Parse {
     private ArrayList<IToken> departments;
+    private Stemmer stemmer = null;
     // term -> {docId -> {positions, TF}}
     private HashMap<String, HashMap<String, TermDetailes>> resultForIndex;
     private HashSet<String> stopWords;
@@ -17,10 +18,13 @@ public class Parse {
 
     /**
      * constructor
-     *
+     *@param isStemmer - a boolean variable that determines whether to perform stemming on the corpus //todo - add to word
      * @param stopWords - accepts all words defined as stop word
      */
-    public Parse(HashSet<String> stopWords) {
+    public Parse(HashSet<String> stopWords, boolean isStemmer) {
+        if(isStemmer) {
+            stemmer = new Stemmer();
+        }
         this.stopWords = stopWords;
         resultForIndex = new HashMap<String, HashMap<String, TermDetailes>>();
         departments = new ArrayList<IToken>();
@@ -29,7 +33,7 @@ public class Parse {
         departments.add(new DateToken());
         departments.add(new PriceToken());
         departments.add(new NumberToken());
-        departments.add(new CapitalLetterToken(resultForIndex, stopWords));
+        departments.add(new CapitalLetterToken(resultForIndex, stopWords, this.stemmer));
         departments.add(new RelevanceToken());
     }
 
@@ -37,10 +41,9 @@ public class Parse {
      * The main function that manages the entire parse process
      *
      * @param Docs      - gets a list of documents to parse
-     * @param isStemmer - a boolean variable that determines whether to perform stemming on the corpus
      * @return - a term dictionary whose value is another dictionary that contains information about the term for documents
      */
-    public HashMap<String, HashMap<String, TermDetailes>> ParseCorpus(ArrayList<DocDetailes> Docs, Boolean isStemmer) {
+    public HashMap<String, HashMap<String, TermDetailes>> ParseCorpus(ArrayList<DocDetailes> Docs) {
         ArrayList<DocDetailes> result = new ArrayList<>(); // todo- we need result?
         //running on all the documents
         for (int i = 0; i < Docs.size(); i++) {
@@ -70,13 +73,7 @@ public class Parse {
                 while (j < textLength) {
                     //move 8 words from the document at a time
                     List<String> sentenceToCheck = textSplitted.subList(j, j + 8 < textLength ? j + 8 : textLength);
-                    ParsedResult parsedResult = null;
-                    try {
-                        parsedResult = this.GetSuitableDepartment(sentenceToCheck);
-                    } catch (Exception e) {
-                        System.out.println("doc id is" + Docs.get(i).DocID);
-                    }
-
+                    ParsedResult parsedResult = this.GetSuitableDepartment(sentenceToCheck);
 
                     // if we did not find a suitable department for the word ,
                     // We will add it to the dictionary using the dictionary's update function

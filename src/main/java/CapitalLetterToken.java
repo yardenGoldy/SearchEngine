@@ -11,16 +11,18 @@ public class CapitalLetterToken implements IToken {
 
     private HashMap<String, HashMap<String, TermDetailes>> dictForIndex;
     private HashSet<String> stopWords;
+    private Stemmer stemmer;
 
     /**
      * constructor
      * @param dict - dictionary of all the term from the corpus
      * @param stopWords - hash set of all the stop word we need ignore of them
      */
-    public CapitalLetterToken(HashMap<String, HashMap<String, TermDetailes>> dict, HashSet<String> stopWords)
+    public CapitalLetterToken(HashMap<String, HashMap<String, TermDetailes>> dict, HashSet<String> stopWords, Stemmer stemmer)
     {
         this.stopWords = stopWords;
         this.dictForIndex = dict;
+        this.stemmer = stemmer;
     }
 
     /**
@@ -45,6 +47,13 @@ public class CapitalLetterToken implements IToken {
                 return null;
             }
         }
+
+        if(this.stemmer != null){
+            this.stemmer.add(first.toCharArray(), first.length());
+            this.stemmer.stem();
+            first = this.stemmer.toString();
+        }
+
 
         HashMap <String, TermDetailes> newHashMapForTerm;
         String capitalCase = first.toUpperCase(); //all the letter big
