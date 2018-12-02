@@ -1,29 +1,27 @@
+
 public class DocDetailes {
-    public int MaxTermFrequency;
-    public int NumOfSpecialWords;
-    public int DocLength;
-    public String DocID;
-    public String DocText;
-    public String DocDate;
-    public String DocTitle;
-    public String City;
+    private String DocId;
+    private int MaxTermFrequency; //max_tf
+    private int NumOfSpecialWords;
+    private int DocLength;
+    private String DocText;
+    private String DocDate;
+    private String DocTitle;
+    private String DocCity;
 
 
-    public DocDetailes(String DocID ,String docText, String docDate, String docTitle, String city) {
-        this.DocID = DocID;
-        this.DocText = docText;
-        this.DocDate = docDate;
-        this.DocTitle = docTitle;
-        this.City = city;
-        this.MaxTermFrequency = 0;
-    }
-    public String getDocID() {
-        return DocID;
+    public DocDetailes(String docid,String docText, String docDate, String docTitle, String city) {
+        DocId = docid;
+        DocText = docText;
+        DocDate = docDate;
+        DocTitle = docTitle;
+        DocCity = city;
+        MaxTermFrequency = 0;
     }
 
-    public void setDocID(String DocID) {
-        DocID = DocID;
-    }
+    public String getDocID() {return DocId;}
+
+    public void setDocID(String docId) {DocId = docId; }
 
     public int getMaxTermFrequency() {return MaxTermFrequency;}
 
@@ -71,11 +69,7 @@ public class DocDetailes {
         DocTitle = docTitle;
     }
 
-    public String getCity() {
-        return City;
-    }
+    public String getDocCity() {return DocCity;}
 
-    public void setCity(String city) {
-        City = city;
-    }
+    public void setDocCity(String docCity) {DocCity = docCity; }
 }

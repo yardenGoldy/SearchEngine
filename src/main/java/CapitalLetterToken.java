@@ -9,20 +9,18 @@ import java.util.List;
  */
 public class CapitalLetterToken implements IToken {
 
-    private HashMap<String, HashMap<String, TermDetailes>> dictForIndex;
+    private HashMap<String , TermDetailes> dictForIndex;
     private HashSet<String> stopWords;
-    private Stemmer stemmer;
 
     /**
      * constructor
      * @param dict - dictionary of all the term from the corpus
      * @param stopWords - hash set of all the stop word we need ignore of them
      */
-    public CapitalLetterToken(HashMap<String, HashMap<String, TermDetailes>> dict, HashSet<String> stopWords, Stemmer stemmer)
+    public CapitalLetterToken( HashMap<String , TermDetailes>  dict, HashSet<String> stopWords)
     {
         this.stopWords = stopWords;
         this.dictForIndex = dict;
-        this.stemmer = stemmer;
     }
 
     /**
@@ -48,10 +46,10 @@ public class CapitalLetterToken implements IToken {
             }
         }
 
-        if(this.stemmer != null){
-            this.stemmer.add(first.toCharArray(), first.length());
-            this.stemmer.stem();
-            first = this.stemmer.toString();
+        if(Parse.stemmer != null){
+            Parse.stemmer.add(first.toCharArray(), first.length());
+            Parse.stemmer.stem();
+            first = Parse.stemmer.toString();
         }
 
 

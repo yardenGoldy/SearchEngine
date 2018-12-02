@@ -1,117 +1,76 @@
-import javax.print.Doc;
+
+import java.io.*;
 import java.util.*;
-
-
-//todo- yuval- update for each doc his length without stopwords only verified tokens -
-// use: public void setDocLength(int docLength) {DocLength = docLength;}
 
 /**
  * This class should perform parse on the entire corpus
  */
-public class Parse {
-    private ArrayList<IToken> departments;
-    private Stemmer stemmer = null;
-    // term -> {docId -> {positions, TF}}
-    private HashMap<String, HashMap<String, TermDetailes>> resultForIndex;
-    private HashSet<String> stopWords;
-    //array of all stop word
 
-    /**
-     * constructor
-     *@param isStemmer - a boolean variable that determines whether to perform stemming on the corpus //todo - add to word
-     * @param stopWords - accepts all words defined as stop word
-     */
-    public Parse(HashSet<String> stopWords, boolean isStemmer) {
+// parse doc doc
+public class Parse {
+    public Boolean isStemmer;
+    public static  Stemmer stemmer;
+    private HashSet<String> stopWords; //array of all stop word
+    private ArrayList<IToken> departments;
+    private HashMap<String, TermDetailes> resultForIndex;
+    private HashSet<String > DicForCapitalLetterToken; //todo to find a way to delete thid dic
+    public int index;
+
+
+    public Parse(Boolean isStemmer, String stopwordsPath) throws FileNotFoundException {
         if(isStemmer) {
             stemmer = new Stemmer();
         }
-        this.stopWords = stopWords;
-        resultForIndex = new HashMap<String, HashMap<String, TermDetailes>>();
+        resultForIndex = new HashMap<>();
+        this.stopWords = InitiateStopWords(stopwordsPath);
+        DicForCapitalLetterToken = new HashSet<>();
         departments = new ArrayList<IToken>();
         departments.add(new RangeToken());
         departments.add(new PercentageToken());
         departments.add(new DateToken());
         departments.add(new PriceToken());
         departments.add(new NumberToken());
-        departments.add(new CapitalLetterToken(resultForIndex, stopWords, this.stemmer));
+        departments.add(new CapitalLetterToken( resultForIndex, stopWords));
         departments.add(new RelevanceToken());
     }
 
     /**
      * The main function that manages the entire parse process
      *
-     * @param Docs      - gets a list of documents to parse
+     * @param - document to parse
+     * @param - a boolean variable that determines whether to perform stemming on the corpus
      * @return - a term dictionary whose value is another dictionary that contains information about the term for documents
      */
-    public HashMap<String, HashMap<String, TermDetailes>> ParseCorpus(ArrayList<DocDetailes> Docs) {
-        ArrayList<DocDetailes> result = new ArrayList<>(); // todo- we need result?
-        //running on all the documents
-        for (int i = 0; i < Docs.size(); i++) {
-            //System.out.println(Docs.get(i).DocID); // todo - Delete - to test
-            String currentText = Docs.get(i).DocText;
-            // if we do not recognize text, we will not parse ans continue to another document
-            if (currentText.equals("")) {
-                continue;
-            } else {
-                long timeForShit = System.nanoTime();
-                List<String> firstTextSplitted = Arrays.asList(currentText.split("[\\s\\n\\r]+"));
-                StringBuilder resultText = new StringBuilder();  // todo- we need resultText?
-                int j = 0; // Index that runs on all words in a document
-                long timeForText = System.nanoTime();
-                removeSpecialChars(firstTextSplitted);
-                String newText = firstTextSplitted.toString();
-                newText = newText.substring(1, newText.length() - 1);
-                List<String> textSplitted = Arrays.asList(newText.replaceAll(",", "").split("[\\s\\n\\r]+"));
-                int textLength = textSplitted.size();
-                if (textSplitted.get(0).equals("")) {
-                    textSplitted = textSplitted.subList(1, textSplitted.size());
-                    textLength--;
-                }
-                long endTimeShit = System.nanoTime();
-                if ((endTimeShit - timeForShit) > 10000000)
-                    System.out.println("Time for shit is " + ((endTimeShit - timeForShit) / 1000000));
-                while (j < textLength) {
-                    //move 8 words from the document at a time
-                    List<String> sentenceToCheck = textSplitted.subList(j, j + 8 < textLength ? j + 8 : textLength);
-                    ParsedResult parsedResult = this.GetSuitableDepartment(sentenceToCheck);
-
-                    // if we did not find a suitable department for the word ,
-                    // We will add it to the dictionary using the dictionary's update function
-                    if (parsedResult == null) {
-                        String currentWork = textSplitted.get(j);
-                        UpdateInDictionary(currentWork, (Docs.get(i)).getDocID(), j);
-                        resultText.append(currentWork); // todo- we need resultText?
-                        j++;
-                    }
-                    // Found a parsed department We will add it to the dictionary using the dictionary's update function
-                    else {
-                        resultText = resultText.append(parsedResult.ParsedSentence); // todo- we need resultText?
-                        UpdateInDictionary(parsedResult.ParsedSentence.toString(), (Docs.get(i)).getDocID(), j);
-                        j += parsedResult.Index;
-                    }
-                    resultText.append(" "); // todo- we need resultText?
-                }
-                long endTime = System.nanoTime();
-                if ((endTime - timeForText) > 10000000)
-                    System.out.println("Time for text is " + ((endTime - timeForText) / 1000000));
-                resultText.deleteCharAt(resultText.length() - 1); // todo- we need resultText?
-                DocDetailes parsedDoc = Docs.get(i);
-                parsedDoc.setDocText(resultText.toString()); // todo- we need resultText?
-                //result.add(parsedDoc);  // todo- we need result?
+    public HashMap<String, TermDetailes> ParseDoc(String Doctxt, String Docid) { //HashMap<Term,TermDetailes> parsedDoc
+        resultForIndex = new HashMap<>();StringBuilder stb = new StringBuilder();int textLength = 0;int index = 0;// Index that runs on all words in a document
+        List<String> textSplitted = Arrays.asList(Doctxt.split("[\\s\\n\\r]+"));
+        removeSpecialChars(textSplitted);
+        String tmp = textSplitted.toString();
+        tmp = tmp.substring(1,tmp.length()-1);
+        textSplitted = Arrays.asList(tmp.replaceAll(",", "").split("[\\s\\n\\r]+"));
+        textLength = textSplitted.size();
+        if (textSplitted.get(0).equals("")) {
+            textSplitted = textSplitted.subList(1, textSplitted.size());
+            textLength--;
+        }
+        while (index < textLength) {
+            //move 8 words from the document at a time
+            List<String> sentenceToCheck = textSplitted.subList(index, index + 8 < textLength ? index + 8 : textLength);
+            ParsedResult parsedResult = this.GetSuitableDepartment(sentenceToCheck);
+            // if we did not find a suitable department for the word ,
+            // We will add it to the dictionary using the dictionary's update function
+            if (parsedResult == null) {
+                String currentWork = textSplitted.get(index);
+                UpdateInDictionary(currentWork, Docid, index);
+                index++;
+            }
+            // Found a parsed department We will add it to the dictionary using the dictionary's update function
+            else {
+                UpdateInDictionary(parsedResult.ParsedSentence.toString(), Docid, index);
+                index += parsedResult.Index;
             }
         }
-
-        //todo -Delete before serving
-//         print the dictionary - for test
-//        for (Map.Entry<String, HashMap<String, TermDetailes>> entry : resultForIndex.entrySet()) {
-//            System.out.print(entry.getKey() + ": ");
-//            for (Map.Entry<String, TermDetailes> doc : entry.getValue().entrySet()) {
-//                System.out.print("<" + doc.getKey() + " , " + doc.getValue().toString() + "> -> ");
-//            }
-//            System.out.println();
-//        }
-
-        System.out.println("DONE");
+        SearchEngine.All_Docs.get(Docid).setNumOfSpecialWords(resultForIndex.size()); //todo- check 1
         return resultForIndex;
     }
 
@@ -125,46 +84,25 @@ public class Parse {
      * @param index     - saves the location of the word in the document
      */
     public void UpdateInDictionary(String wordToAdd, String docId, int index) {
-        long timeForUpdateDict = System.nanoTime();
         //If the word is stopWord or '.' - we don't add to dictionary
         if (wordToAdd.equals(".") || stopWords.contains(wordToAdd.toLowerCase())) {
             return;
         }
-
         String wordToAddBigLetter = wordToAdd.toUpperCase();
         String wordToAddSmallLetter = wordToAdd.toLowerCase();
-        HashMap<String, TermDetailes> which_document;
-        TermDetailes term_Detail_Per_Doc;
         // If the word does not exist in the dictionary , we'll create a new one - new term
         if (!resultForIndex.containsKey(wordToAddBigLetter) && !resultForIndex.containsKey(wordToAddSmallLetter)) {
-            which_document = new HashMap<String, TermDetailes>();
-            term_Detail_Per_Doc = new TermDetailes(docId);
-            term_Detail_Per_Doc.UpdateTF();
-            term_Detail_Per_Doc.Positions.add(index);
-            which_document.put(docId, term_Detail_Per_Doc);
-            resultForIndex.put(wordToAdd, which_document);
+            TermDetailes term_Detail_Per_Doc = new TermDetailes(docId);
+            //term_Detail_Per_Doc.AddPosition(index);
+            DicForCapitalLetterToken.add(wordToAdd);
+            resultForIndex.put(wordToAdd, term_Detail_Per_Doc);
         }
         //the word exists in the dictionary
         else {
             wordToAdd = resultForIndex.containsKey(wordToAddBigLetter) ? wordToAdd.toUpperCase() : wordToAdd.toLowerCase();
-            //the word exists in the dictionary per docId
-            if (resultForIndex.get(wordToAdd).containsKey(docId)) {
-
-                which_document = resultForIndex.get(wordToAdd);
-                term_Detail_Per_Doc = resultForIndex.get(wordToAdd).get(docId);
-            }
-            //the word exists in the dictionary but for another document - We'll create a new entry in the hashSet
-            else {
-                term_Detail_Per_Doc = new TermDetailes(docId);
-            }
-            //Update all the values
-            term_Detail_Per_Doc.UpdateTF();
-            term_Detail_Per_Doc.Positions.add(index);
-            resultForIndex.get(wordToAdd).put(docId, term_Detail_Per_Doc);
+            resultForIndex.get(wordToAdd).UpdateTF();
+            //resultForIndex.get(wordToAdd).AddPosition(index);
         }
-        long endTime = System.nanoTime();
-        if ((endTime - timeForUpdateDict) > 10000000)
-            System.out.println("Time for update dictionary is " + ((endTime - timeForUpdateDict) / 1000000));
     }
 
     /**
@@ -172,9 +110,8 @@ public class Parse {
      *
      * @param sentenceToCheck - The function accepts a sentence containing different characters and removes them.
      */
+    //todo - needed to substract more delimiters!!
     public void removeSpecialChars(List<String> sentenceToCheck) {
-
-        long timeForRemoveChars = System.nanoTime();
         int sentenceSize = sentenceToCheck.size();
         // Passing each of the words in the sentence
         for (int i = 0; i < sentenceSize; i++) {
@@ -214,9 +151,6 @@ public class Parse {
                 }
             }
         }
-        long endTime = System.nanoTime();
-        if ((endTime - timeForRemoveChars) > 10000000)
-            System.out.println("Time for remove special chars is " + ((endTime - timeForRemoveChars) / 1000000));
     }
 
     public Boolean isNumeric(String s) {
@@ -233,24 +167,27 @@ public class Parse {
      * else - we can not find a suitable class, we will return null.
      */
     public ParsedResult GetSuitableDepartment(List<String> sentence) {
-        long timeForParsing = System.nanoTime();
-
         for (int i = 0; i < departments.size(); i++) {
             ParsedResult result = departments.get(i).TryParse(sentence);
             if (result != null && result.IsMatch) {
-                long endTime = System.nanoTime();
-                if ((endTime - timeForParsing) > 10000000) {
-                    System.out.println("time for parsing is  " + ((endTime - timeForParsing) / 1000000));
-                }
                 return result;
             }
         }
-
-        long endTime = System.nanoTime();
-        if ((endTime - timeForParsing) > 10000000) {
-            System.out.println("time for not found parsing is  " + ((endTime - timeForParsing) / 1000000));
-        }
-
         return null;
+    }
+
+    public static HashSet<String> InitiateStopWords(String path) throws FileNotFoundException {
+        HashSet<String> stopWords = new HashSet<String>();
+        File f = new File(path);
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(f))) {
+            String line = bufferedReader.readLine();
+            while (line != null) {
+                stopWords.add(line);
+                line = bufferedReader.readLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return stopWords;
     }
 }

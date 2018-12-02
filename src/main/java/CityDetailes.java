@@ -1,18 +1,22 @@
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CityDetailes {
-
     public String CityName;
     public String Country;
-    public String Crrency;
+    public String Currency;
+    public String Capital;
     public String PopulationSize;
     public HashMap<String,ArrayList<Integer>> CityInDoc;  // <DocID,PositionsInDoc>
 
-    public void InitiateCityDetailes(String cityName, String country, String crrency, String populationSize) {
+    public CityDetailes(){}
+
+    public void InitiateCityDetailes(String cityName, String country,String capital, String currency, String populationSize) {
         CityName = cityName;
         Country = country;
-        Crrency = crrency;
+        Capital = capital;
+        Currency = currency;
         PopulationSize = populationSize;
         CityInDoc = new HashMap<>();
     }
@@ -33,13 +37,13 @@ public class CityDetailes {
         Country = country;
     }
 
-    public String getCrrency() {
-        return Crrency;
-    }
+    public String getCurrency() {return Currency; }
 
-    public void setCrrency(String crrency) {
-        Crrency = crrency;
-    }
+    public void setCurrency(String currency) {Currency = currency; }
+
+    public String getCapital() {return Capital; }
+
+    public void setCapital(String capital) {Capital = capital;}
 
     public String getPopulationSize() {
         return PopulationSize;
