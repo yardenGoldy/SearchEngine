@@ -1,26 +1,40 @@
-import java.util.ArrayList;
+
 
 public class TermDetailes {
-    public String DocId;
+    public String DocId; // needed for posting thats why i keep it
     public int TF; //tf
-    //public ArrayList<Integer> Positions;
+    public Boolean IsInTitle;
 
 
-    public TermDetailes(String docId) {
-        //DocId = docId;
-        // Positions = new ArrayList<>();
+    public TermDetailes(String docid) {
+        DocId = docid;
         TF = 1;
-        boolean isInTitle;
-
+        IsInTitle = false;
     }
 
-    public String getDocId() {return DocId; }
+    public String getDocId() {
+        return DocId;
+    }
 
-    public int getTF() {return TF;}
+    public void setDocId(String docId) {
+        DocId = docId;
+    }
 
     public void UpdateTF(){this.TF = TF+1;}
 
-    //public void AddPosition(int p){Positions.add(p);}
+    public int getTF() {
+        return TF;
+    }
 
-    //public ArrayList<Integer> getPositions() {return Positions;}
+    public void setTF(int TF) {
+        this.TF = TF;
+    }
+
+    public Boolean getInTitle() {
+        return IsInTitle;
+    }
+
+    public void setInTitle(Boolean inTitle) {
+        IsInTitle = inTitle;
+    }
 }

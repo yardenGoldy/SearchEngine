@@ -1,22 +1,14 @@
 
 public class DictionaryDetailes {
-
-    public String Name;
     public int NumOfDocsTermIN;  //df
     public int NumOfTermInCorpus;
     public int Pointer;
 
     public DictionaryDetailes(String name) {
-        Name = name;
+        //Name = name;
         NumOfTermInCorpus = 0;
         NumOfDocsTermIN = 1;
     }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {Name = name;}
 
     public int getNumOfDocsTermIN() {
         return NumOfDocsTermIN;

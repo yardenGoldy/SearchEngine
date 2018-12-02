@@ -9,8 +9,6 @@ import java.util.*;
 import java.net.*;
 
 
-//HashMap<term, HashMap<docID, TermDetailes>> resultForIndex
-
 //index block block until 50 blocks and then flush
 public class Indexer {
 
