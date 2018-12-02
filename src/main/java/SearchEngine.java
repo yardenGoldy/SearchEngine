@@ -26,7 +26,7 @@ public class SearchEngine {
     public SearchEngine(String corpusPathIN, String corpusPathOUT, boolean Steemer) throws IOException {
         CorpusPathIN = corpusPathIN;
         CorpusPathOUT = corpusPathOUT;
-        StopWordsPath = new StringBuilder(corpusPathIN + "./stop_words.txt");
+        StopWordsPath = new StringBuilder(corpusPathIN + "/stop_words.txt");
         StemmerNeeded = Steemer;
         readFile = new ReadFile(CorpusPathIN);
         parse = new Parse(StemmerNeeded, StopWordsPath.toString());
@@ -48,12 +48,13 @@ public class SearchEngine {
             }
         }
         //finish threads
-        //indexer.ItsTimeForFLUSH_POSTING(); //todo -  handle last iteration
+
         indexer.ItsTimeForMERGE_All_Postings();
         indexer.ItsTimeToWriteDictionary();
         indexer.ItsTimeFor_FinalDoc();
         long FinishTime = System.nanoTime();
         long TotalTime = StartTime - FinishTime;
+        System.out.println("Out of fuel...");
         System.out.println(TotalTime/1000000000);
     }
 

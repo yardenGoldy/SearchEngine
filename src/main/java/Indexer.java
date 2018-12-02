@@ -101,7 +101,7 @@ public class Indexer {
             }
         }
         SearchEngine.All_Docs.get(Docid).setMaxTermFrequency(MaxTermFreq);
-        if(BlockCounter == 50000) {
+        if(BlockCounter == 5000) {
             ItsTimeForFLUSH_POSTING();
             Posting.clear();
             BlockCounter = 0;
@@ -142,7 +142,13 @@ public class Indexer {
             }
             FilestoMerge = file.listFiles();
         }
-        //MERGE_SORT(FilestoMerge[0],FilestoMerge[1]);
+//todo - how to handele last iteration and not losing tmpmerge
+//        if(Posting.size() != 0) {
+//            ItsTimeForFLUSH_POSTING();
+//            FilestoMerge = file.listFiles();
+//            MERGE_SORT(FilestoMerge[0], FilestoMerge[1]);
+//        }
+        ItsTImeToBoost();
         ItsTimeForSPLIT_Final_Posting_For_Dic();
     }
 
@@ -337,19 +343,18 @@ public class Indexer {
         }
     }
 
-//    public void ItsTImeToBoost(){
-//        HashSet<String> Garbage = new HashSet<>();
-//        for (Map.Entry<String,DictionaryDetailes> term : Dictionary.entrySet()) {
-//            String tmpTerm = term.getKey();
-//            int tmpTF = term.getValue().getNumOfTermInCorpus();
-//            if(tmpTF < 2 || tmpTerm.equals(" ") || tmpTerm.equals("") || tmpTerm.isEmpty() || tmpTerm.equals("%") || tmpTerm.length()<= 1){
-//                Garbage.add(tmpTerm);
-//            }
-//        }
-//        for(String t : Garbage){
-//            Dictionary.remove(t);
-//        }
-//    }
+    public void ItsTImeToBoost(){
+        HashSet<String> Garbage = new HashSet<>();
+        for (Map.Entry<String,DictionaryDetailes> term : Dictionary.entrySet()) {
+            String tmpTerm = term.getKey();
+            if(term.getValue().getNumOfTermInCorpus() < 8 || tmpTerm.equals(" ") || tmpTerm.equals("") || tmpTerm.isEmpty() || tmpTerm.length()<= 1){
+                Garbage.add(tmpTerm);
+            }
+        }
+        for(String t : Garbage){
+            Dictionary.remove(t);
+        }
+    }
 
 
     // print doc name with max freq of city ,name of the city , location of the city in the doc

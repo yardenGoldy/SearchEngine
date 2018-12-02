@@ -22,12 +22,13 @@ public class Main extends Application {
 
     }
 
-// eran path - /Users/eranedri/Documents/GitHub/SearchEngine/
+// eran path - /Users/eranedri/Documents/GitHub/SearchEngine/Postingcorpus
+// eran path for stop word is /stop_words - without a dot!
 
     public static void main(String[] args) throws IOException {
         //launch(args);
         SearchEngine searchEngine;
-        searchEngine = new SearchEngine( "C:\\Git\\SearchEngine\\corpus","C:\\Git\\SearchEngine\\corpus",false);
+        searchEngine = new SearchEngine( "/Users/eranedri/Documents/GitHub/SearchEngine/Postingcorpus","/Users/eranedri/Documents/GitHub/SearchEngine/Postingcorpus",false);
         System.out.println("finish");
         System.exit(0);
     }
