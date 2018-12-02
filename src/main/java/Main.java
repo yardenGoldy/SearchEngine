@@ -22,6 +22,7 @@ public class Main extends Application {
 
     }
 
+// eran path - /Users/eranedri/Documents/GitHub/SearchEngine/
 
     public static void main(String[] args) throws IOException {
         //launch(args);

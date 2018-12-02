@@ -61,12 +61,13 @@ public class ReadFile {
                 String DocText = element.getElementsByTag("TEXT").text();
                 String DocDate = element.getElementsByTag("DATE1").text();
                 String DocTitle = element.getElementsByTag("TI").text();
+                int Length = DocText.length();
                 String CitySection = ""; //todo needed to find a way
 //                    if(SearchEngine.City.containsKey(CitySection)){
 //                        ProcessCity(CitySection);
 //                    }
                 //SearchEngine.All_Docs.put(DocID, new DocDetailes(DocID, DocText, DocDate, DocTitle, CitySection));
-                Docs.put(DocID, new DocDetailes(DocID, DocText, DocDate, DocTitle, CitySection));
+                Docs.put(DocID, new DocDetailes(DocID, DocText, DocDate, DocTitle, CitySection ,Length));
             }
             //SubFilesCounter++;
             //return DocsPerBlock;

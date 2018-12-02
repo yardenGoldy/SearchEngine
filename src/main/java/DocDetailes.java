@@ -10,13 +10,15 @@ public class DocDetailes {
     private String DocCity;
 
 
-    public DocDetailes(String docid,String docText, String docDate, String docTitle, String city) {
+    public DocDetailes(String docid,String docText, String docDate, String docTitle, String city ,int doclength) {
         DocId = docid;
         DocText = docText;
         DocDate = docDate;
         DocTitle = docTitle;
         DocCity = city;
+        DocLength = doclength;
         MaxTermFrequency = 0;
+
     }
 
     public String getDocID() {return DocId;}
@@ -72,4 +74,5 @@ public class DocDetailes {
     public String getDocCity() {return DocCity;}
 
     public void setDocCity(String docCity) {DocCity = docCity; }
+
 }

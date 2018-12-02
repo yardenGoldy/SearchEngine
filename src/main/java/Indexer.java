@@ -9,7 +9,6 @@ import java.util.*;
 import java.net.*;
 
 
-//index block block until 50 blocks and then flush
 public class Indexer {
 
     public String CorpusPathOUT;
@@ -69,7 +68,7 @@ public class Indexer {
 
 
     public void CreateMINI_Posting(HashMap<String, TermDetailes> DocAfterParse ,String  Docid) throws IOException {
-        int SpecialWordsCounter = 0;int MaxTermFreq = 0;
+        int MaxTermFreq = 0;
         for (Map.Entry<String,TermDetailes> term : DocAfterParse.entrySet()) {
             String tmpTerm = term.getKey();
             TermDetailes tmpTermDetailes = term.getValue();
@@ -83,7 +82,6 @@ public class Indexer {
                 DictionaryDetailes tmpDictionaryDetailes = new DictionaryDetailes(tmpTerm);
                 tmpDictionaryDetailes.UpdateNumOfTermInCorpus(tmpTermDetailes.getTF());
                 Dictionary.put(tmpTerm, tmpDictionaryDetailes);
-                SpecialWordsCounter++;
             }
             // if term in Post database
             if(Posting.containsKey(tmpTerm)){
@@ -102,8 +100,6 @@ public class Indexer {
                 MaxTermFreq = tmpTermDetailes.getTF();
             }
         }
-        SearchEngine.All_Docs.get(Docid).setNumOfSpecialWords(SpecialWordsCounter);
-        SearchEngine.All_Docs.get(Docid).setDocLength(DocAfterParse.size());
         SearchEngine.All_Docs.get(Docid).setMaxTermFrequency(MaxTermFreq);
         if(BlockCounter == 50000) {
             ItsTimeForFLUSH_POSTING();
