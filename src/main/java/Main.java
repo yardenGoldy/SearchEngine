@@ -28,7 +28,7 @@ public class Main extends Application {
     public static void main(String[] args) throws IOException {
         //launch(args);
         SearchEngine searchEngine;
-        searchEngine = new SearchEngine( "/Users/eranedri/Documents/GitHub/SearchEngine/Postingcorpus","/Users/eranedri/Documents/GitHub/SearchEngine/Postingcorpus",false);
+        searchEngine = new SearchEngine( "/Users/eranedri/Documents/GitHub/SearchEngine/Completecorpus","/Users/eranedri/Documents/GitHub/SearchEngine/Completecorpus",false);
         System.out.println("finish");
         System.exit(0);
     }

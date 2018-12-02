@@ -53,9 +53,9 @@ public class SearchEngine {
         indexer.ItsTimeToWriteDictionary();
         indexer.ItsTimeFor_FinalDoc();
         long FinishTime = System.nanoTime();
-        long TotalTime = StartTime - FinishTime;
+        long TotalTime = FinishTime - StartTime;
         System.out.println("Out of fuel...");
-        System.out.println(TotalTime/1000000000);
+        System.out.println(TotalTime/1000000);
     }
 
 
