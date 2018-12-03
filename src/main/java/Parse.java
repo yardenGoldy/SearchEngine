@@ -41,7 +41,7 @@ public class Parse {
      * @param - a boolean variable that determines whether to perform stemming on the corpus
      * @return - a term dictionary whose value is another dictionary that contains information about the term for documents
      */
-    public HashMap<String, TermDetailes> ParseDoc(String Doctxt, String Docid) { //HashMap<Term,TermDetailes> parsedDoc
+    public HashMap<String, TermDetailes> ParseDoc(String Doctxt, String Docid ,String DocCity , String DocTitle) { //HashMap<Term,TermDetailes> parsedDoc
         resultForIndex = new HashMap<>();StringBuilder stb = new StringBuilder();int textLength = 0;int index = 0;// Index that runs on all words in a document
         List<String> textSplitted = Arrays.asList(Doctxt.split("[\\s\\n\\r]+"));
         removeSpecialChars(textSplitted);

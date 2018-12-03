@@ -8,7 +8,7 @@ public class TermDetailes {
 
     public TermDetailes(String docid) {
         DocId = docid;
-        TF = 1;
+        TF = 0;
         IsInTitle = false;
     }
 
