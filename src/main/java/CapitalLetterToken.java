@@ -49,7 +49,7 @@ public class CapitalLetterToken implements IToken {
             first = Parse.stemmer.toString();
         }
 
-
+        sentence.set(0, first);
         HashMap <String, TermDetailes> newHashMapForTerm;
         String capitalCase = first.toUpperCase(); //all the letter big
         String lowerCase = first.toLowerCase(); //all the letter small
