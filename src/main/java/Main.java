@@ -28,7 +28,8 @@ public class Main extends Application {
     public static void main(String[] args) throws IOException {
         //launch(args);
         SearchEngine searchEngine;
-        searchEngine = new SearchEngine( "/Users/eranedri/Documents/GitHub/SearchEngine/OneFoldercorpus","/Users/eranedri/Documents/GitHub/SearchEngine/OneFoldercorpus",false);
+        searchEngine = new SearchEngine( "C:\\Git\\SearchEngine\\test","C:\\Git\\SearchEngine\\test",false);
+        System.out.println("finish");
         System.exit(0);
     }
 }

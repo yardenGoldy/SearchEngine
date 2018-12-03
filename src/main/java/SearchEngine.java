@@ -43,7 +43,7 @@ public class SearchEngine {
                         ProcessCity(Docid.getValue().getDocCity());
                     }
                     All_Docs.put(Docid.getKey(),Docid.getValue());
-                    TermsPerDoc = parse.ParseDoc(Docid.getValue().getDocText(), Docid.getKey() , Docid.getValue().getDocCity(),Docid.getValue().getDocTitle()); //update - Positiones
+                    TermsPerDoc = parse.ParseDoc(Docid.getValue().getDocText(), Docid.getKey() ,Docid.getValue().getDocCity() , Docid.getValue().getDocTitle());
                     indexer.CreateMINI_Posting(TermsPerDoc, Docid.getKey()); // update - tNumOfSpecialWords , DocLength , MaxTermFrequency
                 }
             }

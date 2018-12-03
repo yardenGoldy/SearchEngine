@@ -9,18 +9,15 @@ import java.util.List;
  */
 public class CapitalLetterToken implements IToken {
 
-    private HashMap<String , TermDetailes> dictForIndex;
     private HashSet<String> stopWords;
 
     /**
      * constructor
-     * @param dict - dictionary of all the term from the corpus
      * @param stopWords - hash set of all the stop word we need ignore of them
      */
-    public CapitalLetterToken( HashMap<String , TermDetailes>  dict, HashSet<String> stopWords)
+    public CapitalLetterToken( HashSet<String> stopWords)
     {
         this.stopWords = stopWords;
-        this.dictForIndex = dict;
     }
 
     /**
@@ -52,7 +49,7 @@ public class CapitalLetterToken implements IToken {
             first = Parse.stemmer.toString();
         }
 
-
+        sentence.set(0, first);
         HashMap <String, TermDetailes> newHashMapForTerm;
         String capitalCase = first.toUpperCase(); //all the letter big
         String lowerCase = first.toLowerCase(); //all the letter small
@@ -60,7 +57,7 @@ public class CapitalLetterToken implements IToken {
         StringBuilder result = new StringBuilder();
 
         // if the first char is not capital letter and the work contain in the dictionary on capital case or the word is stop word
-        if ((!Character.isUpperCase(first.charAt(0)) && !dictForIndex.containsKey(capitalCase)) || this.stopWords.contains(lowerCase)){
+        if ((!Character.isUpperCase(first.charAt(0)) && !Parse.resultForIndex.containsKey(capitalCase)) || this.stopWords.contains(lowerCase)){
             long endTime = System.nanoTime();
             if(((endTime - startTime)) > 10000000)
             {
@@ -69,9 +66,9 @@ public class CapitalLetterToken implements IToken {
             return null;
         }
         //check if the word in the dictionary is in capital letters and our word is with lowercase letters
-        if (this.dictForIndex.containsKey(capitalCase)&& Character.isLowerCase(first.charAt(0))){
-            this.dictForIndex.put(lowerCase, this.dictForIndex.get(capitalCase));
-            this.dictForIndex.remove(capitalCase);
+        if (Parse.resultForIndex.containsKey(capitalCase)&& Character.isLowerCase(first.charAt(0))){
+            Parse.resultForIndex.put(lowerCase, Parse.resultForIndex.get(capitalCase));
+            Parse.resultForIndex.remove(capitalCase);
             result.append(lowerCase);
         }
         // A new term , add to the hashMap

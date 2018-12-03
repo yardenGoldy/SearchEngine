@@ -38,11 +38,11 @@ public class NumberToken implements IToken {
         String firstWithoutComma = first.replaceAll("," , "");
         //if the first token is not number
         if(!isNumeric(firstWithoutComma)){
-            long endTime = System.nanoTime();
-            if(((endTime - startTime)) > 10000000)
-            {
-                System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
-            }
+//            long endTime = System.nanoTime();
+//            if(((endTime - startTime)) > 10000000)
+//            {
+//                System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
+//            }
             return null; }
         else {
             //its number -> parse real Double
@@ -58,10 +58,10 @@ public class NumberToken implements IToken {
             // return number as is - num without fraction
             if (num < 1000 && !second.contains("/")) {
                 long endTime = System.nanoTime();
-                if(((endTime - startTime)) > 10000000)
-                {
-                    System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
-                }
+//                if(((endTime - startTime)) > 10000000)
+//                {
+//                    System.out.println("time for numbers is " + ((endTime - startTime) / 1000000));
+//                }
                 return new ParsedResult(true , result.append(firstWithoutComma), 1);
             }
             //return number as is with fraction
