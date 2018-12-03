@@ -10,9 +10,6 @@ public class TermDetailes {
     public TermDetailes(String docId) {
         this.TF = 0;
         this.isInTitle = false;
-
-    public String getDocId() {
-        return DocId;
     }
 
     public String getDocId() {
@@ -30,5 +27,4 @@ public class TermDetailes {
     public void UpdateTF() {
         this.TF = TF + 1;
     }
-
 }

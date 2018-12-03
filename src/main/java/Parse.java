@@ -52,6 +52,7 @@ public class Parse {
         } else {
             //long timeForShit = System.nanoTime();
             StringBuilder stb = new StringBuilder();
+            resultForIndex = new HashMap<>();
             int textLength = 0;
             int index = 0;// Index that runs on all words in a document
             List<String> textSplitted = Arrays.asList(DocText.split("[\\s\\n\\r]+"));
